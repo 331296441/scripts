@@ -17,14 +17,14 @@ if [[ $(git status -uno | grep 'Your branch is behind') ]]; then
   echo "远程有更新，正在拉取代码..."
   git pull
 fi
-
+HOST_NAME=$(hostname)
 current_time=$(date "+%Y-%m-%d %H:%M:%S")
 echo "当前时间为：$current_time"
 # 检查本地是否有更新
 if [[ $(git status -s) ]]; then
   echo "本地有更新，正在提交并推送代码..."
   git add .
-  git commit -m "自动提交 $current_time"
+  git commit -m "自动提交 by $HOST_NAME $current_time"
   git push
 fi
 
