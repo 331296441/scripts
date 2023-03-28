@@ -3,6 +3,12 @@
 # 如果传入了目录参数，则使用该目录，否则使用当前目录
 if [[ -n "${1}" ]]; then
   cd "${1}"
+else
+  # 获取当前脚本所在目录的绝对路径
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+  # 进入脚本所在目录
+  cd "$SCRIPT_DIR"
 fi
 
 # 检查远程是否有更新
