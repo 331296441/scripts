@@ -44,7 +44,7 @@ vim pom.xml
 5. 编写一个简单的Rest API：
 
 ``` shell
-vim src/main/java/com/example/myproject/MyController.java
+vim src/main/java/com/wood/myproject/MyController.java
 ```
 
 ```java
