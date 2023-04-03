@@ -28,3 +28,4 @@ if [[ $(git status -s) ]]; then
   git push
 fi
 
+chmod -R 777 ./
