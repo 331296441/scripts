@@ -23,7 +23,7 @@ echo "当前时间为：$current_time"
 # 检查本地是否有更新
 if [[ $(git status -s) ]]; then
   echo "本地有更新，正在提交并推送代码..."
-  git add .
+  git add --all .
   git commit -m "自动提交 by $HOST_NAME $current_time"
   git push
 fi
