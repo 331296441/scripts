@@ -2,25 +2,36 @@
 
 ## 配置过程
 要将 Debian 11 配置成路由器,基本步骤如下:
+
 1. 安装所需软件包:
 ```bash
 sudo apt install iptables iproute2 isc-dhcp-server
 ```
 
 2. 配置网络接口,选择一个接口作为 WAN 口连接 Internet,另一个作为 LAN 口连接本地网络:
-bash
+3. 
+```bash
 sudo ip addr add 192.168.1.1/24 dev eth0  # 配置 LAN 口 IP 地址 
 sudo ip route add default via 192.168.2.1  # 设置默认路由到 WAN 口
+```
+
 3. 配置 NAT 及 IP 转发,实现内网设备通过路由器上网:
-bash 
+
+```bash 
 sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE   # 启用 NAT
 sudo iptables -A FORWARD -i eth1 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT   # 允许已建立的流量返回 
 sudo iptables -A FORWARD -i eth0 -o eth1 -j ACCEPT      # 允许从内网到外网的流量
 sudo sysctl -w net.ipv4.ip_forward=1    # 启用内核 IP 转发
+sudo iptables -A FORWARD -p udp --dport 53 -j ACCEPT  # 允许 DNS 流量通过
+```
+
 4. 配置 DHCP 服务器,为内网客户端分配 IP 地址:
-bash
+```bash
 sudo vim /etc/dhcp/dhcpd.conf
-在 dhcpd.conf 中添加:
+```
+
+在 `dhcpd.conf` 中添加:
+```
 subnet 192.168.1.0 netmask 255.255.255.0 {
     range 192.168.1.100 192.168.1.200;  
     option domain-name "example.com"; 
@@ -28,14 +39,18 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
     default-lease-time 600;
     max-lease-time 7200;  
 }
+```
  
 5. 重启所需服务:
-bash 
+```bash 
 sudo systemctl restart networking  
 sudo systemctl restart netfilter-persistent 
 sudo systemctl restart isc-dhcp-server
+```
+
 6. (可选)安装并配置无线路由功能。
-7. 
+
+
 
 
 ## 核心内容
@@ -44,6 +59,7 @@ sudo systemctl restart isc-dhcp-server
 
 ```shell
 sysctl -w net.ipv4.ip_forward=1 # 启用IP转发
+iptables -A FORWARD -p udp --dport 53 -j ACCEPT  # 允许 DNS 流量通过
 iptables -t nat -A POSTROUTING -o wlxec888fbd53b0 -j MASQUERADE # 启用NAT
 # wlxec888fbd53b0是网络出口
 ```
