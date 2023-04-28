@@ -48,7 +48,12 @@ cpu_usage=$(top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}')
   # 输出监控数据和恶意进程信息
   echo "$(date) CPU使用率: $cpu_usage - 内存使用率: $mem_usage - 磁盘使用率: $disk_usage - 系统负载: $load_avg"
   echo "恶意进程: $suspicious_procs"
-  
-  echo "脚本自动提交结束"
+
+commit_id=$(git rev-parse HEAD)
+commit_time=$(git log -1 --format=%cd --date=format:'%Y-%m-%d %H:%M:%S')
+echo "当前 Git commit 编号：$commit_id" > Update.md
+echo "提交时间：$commit_time" >> Update.md
+
+echo "脚本自动提交结束"
   
   
