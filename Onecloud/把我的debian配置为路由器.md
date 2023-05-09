@@ -61,7 +61,7 @@ sudo systemctl restart isc-dhcp-server
 ```shell
 sysctl -w net.ipv4.ip_forward=1 # 启用IP转发
 iptables -A FORWARD -p udp --dport 53 -j ACCEPT  # 允许 DNS 流量通过
-iptables -P FORWARD ACCEPT 打开 iptables 的 FORWARD 链默认策略
+iptables -P FORWARD ACCEPT # 打开 iptables 的 FORWARD 链默认策略
 iptables -t nat -A POSTROUTING -o wlxec888fbd53b0 -j MASQUERADE # 启用NAT
 # wlxec888fbd53b0是网络出口
 ```
