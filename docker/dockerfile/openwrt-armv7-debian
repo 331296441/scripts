@@ -10,7 +10,13 @@ RUN apt-get update && \
     apt-get install -y build-essential libncurses5-dev zlib1g-dev gawk git gettext wget unzip python3 && \
     rm -rf /var/lib/apt/lists/*
 
-# 下载 OpenWrt 22.03.5 源代码
+# 安装 Python3 distutils 模块
+RUN apt-get update && apt-get install -y python3-distutils
+
+# 安装 'file' 包
+RUN apt-get update && apt-get install -y file
+
+# 下载 OpenWrt源代码
 RUN git clone https://git.openwrt.org/openwrt/openwrt.git /openwrt
 
 # 进入 OpenWrt 源代码目录
