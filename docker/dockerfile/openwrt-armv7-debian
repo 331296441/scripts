@@ -31,8 +31,6 @@ RUN ./scripts/feeds update -a && \
 # 编译 OpenWrt
 RUN make -j$(nproc)
 
-# 设置环境变量
-ENV PATH="/openwrt/staging_dir/toolchain-arm_cortex-a7+neon-vfpv4_gcc-11.2.0_musl_eabi/bin:${PATH}"
 
 # 打包镜像
-CMD ["make", "image", "PROFILE=avm_fritzbox_7530"]
+CMD ["make", "image"]
