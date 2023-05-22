@@ -1,9 +1,14 @@
-FROM alpine:latest
+FROM debian:latest
 
-# 替换为中科大源
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
+
+# 替换中科大源
+
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+
 # 安装所需的依赖
-RUN apk add --no-cache build-base ncurses-dev zlib-dev git gettext wget unzip python3
+RUN apt-get update && \
+    apt-get install -y build-essential libncurses5-dev zlib1g-dev gawk git gettext wget unzip python3 && \
+    rm -rf /var/lib/apt/lists/*
 
 # 下载 OpenWrt 22.03.5 源代码
 RUN git clone --branch openwrt-22.03.5 https://git.openwrt.org/openwrt/openwrt.git /openwrt
