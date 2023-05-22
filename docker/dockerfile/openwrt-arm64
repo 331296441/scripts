@@ -1,8 +1,31 @@
 FROM arm64v8/alpine:latest
 
-RUN apk add --no-cache curl \
-    && curl -L -o /tmp/openwrt.tar.gz https://downloads.openwrt.org/releases/19.07.7/targets/arm64/generic/openwrt-19.07.7-arm64-generic-rootfs.tar.gz \
-    && tar -C / -xzf /tmp/openwrt.tar.gz \
-    && rm /tmp/openwrt.tar.gz
+# 替换为中科大源
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 
-CMD ["/bin/sh"]
+# 安装所需的依赖
+RUN apk add --no-cache build-base ncurses-dev zlib-dev git gettext wget unzip python3
+
+# 下载 OpenWrt 最新版本的源代码
+RUN git clone https://git.openwrt.org/openwrt/openwrt.git /openwrt
+
+# 进入 OpenWrt 源代码目录
+WORKDIR /openwrt
+
+# 配置编译环境
+RUN ./scripts/feeds update -a && \
+    ./scripts/feeds install -a && \
+    make defconfig && \
+    make menuconfig
+
+# 配置适配 arm64 芯片的选项
+RUN sed -i 's/# CONFIG_TARGET_ramips_mt76x8 is not set/CONFIG_TARGET_armvirt=y\nCONFIG_TARGET_armvirt_64=y\nCONFIG_TARGET_armvirt_64_DEVICE_generic=y/' .config
+
+# 编译 OpenWrt
+RUN make -j$(nproc)
+
+# 设置环境变量
+ENV PATH="/openwrt/staging_dir/toolchain-aarch64_generic_gcc-11.2.0_musl/bin:${PATH}"
+
+# 打包镜像
+CMD ["make", "image"]

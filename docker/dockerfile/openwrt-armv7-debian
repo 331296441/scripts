@@ -11,7 +11,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # 下载 OpenWrt 22.03.5 源代码
-RUN git clone --branch openwrt-22.03.5 https://git.openwrt.org/openwrt/openwrt.git /openwrt
+RUN git clone https://git.openwrt.org/openwrt/openwrt.git /openwrt
 
 # 进入 OpenWrt 源代码目录
 WORKDIR /openwrt
