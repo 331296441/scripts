@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "每日工作自动提交 开始"
+echo "scripts自动提交 开始"
 # 如果传入了目录参数，则使用该目录，否则使用当前目录
 if [[ -n "${1}" ]]; then
   cd "${1}"
@@ -48,7 +48,7 @@ commit_time=$(git log -1 --format=%cd --date=format:'%Y-%m-%d %H:%M:%S')
 echo "当前 Git commit 编号：$commit_id" > Update.md
 echo "提交时间：$commit_time" >> Update.md
 
-echo "每日工作自动提交-done"
+echo "scripts自动提交-done"
 
 
 
