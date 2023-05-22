@@ -4,7 +4,7 @@ FROM alpine:latest
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 
 # 安装所需的依赖
-RUN apk add --no-cache build-base ncurses-dev zlib-dev git gettext wget unzip python3 perl bash argp-standalone musl-fts-dev musl-obstack-dev musl-libintl tar grep gzip bzip2 rsync diffutils findutils gawk coreutils linux-pam-dev xz-dev net-snmp-dev
+RUN apk add --no-cache build-base ncurses-dev zlib-dev git gettext-static wget unzip python3 perl bash argp-standalone musl-fts-dev musl-obstack-dev musl-libintl tar grep gzip bzip2 rsync diffutils findutils gawk coreutils linux-pam-dev xz-dev net-snmp-dev
 
 # 下载 OpenWrt 最新版本的源代码
 RUN git clone https://git.openwrt.org/openwrt/openwrt.git /openwrt

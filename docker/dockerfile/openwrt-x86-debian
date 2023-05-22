@@ -1,0 +1,26 @@
+FROM debian:latest
+
+# 替换中科大源
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+
+# 安装所需的依赖
+RUN apt-get update && \
+    apt-get install -y build-essential libncurses5-dev zlib1g-dev gawk git gettext wget unzip python3 perl bash rsync
+
+# 下载 OpenWrt 最新版本的源代码
+RUN git clone https://git.openwrt.org/openwrt/openwrt.git /openwrt
+
+# 进入 OpenWrt 源代码目录
+WORKDIR /openwrt
+
+# 配置编译环境
+RUN ./scripts/feeds update -a && \
+    ./scripts/feeds install -a && \
+    make defconfig && \
+    make menuconfig
+
+# 编译 OpenWrt
+RUN make -j$(nproc)
+
+# 打包镜像
+CMD ["make", "image"]
