@@ -1,0 +1,8 @@
+FROM arm32v7/alpine:latest
+
+RUN apk add --no-cache curl \
+    && curl -L -o /tmp/openwrt.tar.gz https://downloads.openwrt.org/releases/19.07.7/targets/armvirt/32/openwrt-19.07.7-armvirt-32-default-rootfs.tar.gz \
+    && tar -C / -xzf /tmp/openwrt.tar.gz \
+    && rm /tmp/openwrt.tar.gz
+
+CMD ["/bin/sh"]
