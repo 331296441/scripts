@@ -4,7 +4,7 @@ date=`date "+%F %T"`
 head="System information as of: $date"
   
 kernel=`uname -r`
-hostname=`echo $HOSTNAME`
+hostname=`hostname`
   
 #Cpu load
 load1=`cat /proc/loadavg | awk '{print $1}'`
@@ -20,8 +20,8 @@ upSecs=$((uptime%60))
 up_lastime=`date -d "$(awk -F. '{print $1}' /proc/uptime) second ago" +"%Y-%m-%d %H:%M:%S"`
   
 #Memory Usage
-mem_usage=`free -m |grep Mem| awk '{printf("%3.2f%%",$3/$2*100)}'`
-swap_usage=`free -m |grep Swap| awk '{printf "%.2f%%",$3/$2*100}'`
+mem_usage=`free -m |grep -E 'Mem|内存' | awk '{printf("%3.2f%%",$3/$2*100)}'`
+swap_usage=`free -m |grep -E 'Swap|交换' | awk '{printf "%.2f%%",$3/$2*100}'`
   
 #Processes
 processes=`ps aux | wc -l`
