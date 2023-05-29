@@ -52,7 +52,7 @@ printf "Filesystem\tUsage\n"
 for f in $Filesystem
 do
     Usage=$(df -h | awk '{if($NF=="'''$f'''") print $5}')
-    echo "$f\t\t$Usage"
+    echo -e "$f\t\t$Usage"
 done
 printf "\n"
 printf "Interface\tMAC Address\t\tIP Address\n"
