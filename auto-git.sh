@@ -74,6 +74,7 @@ commit_id=$(git rev-parse HEAD)
 commit_time=$(git log -1 --format=%cd --date=format:'%Y-%m-%d %H:%M:%S')
 echo "当前 Git commit 编号：$commit_id" > Update.md
 echo "提交时间：$commit_time" >> Update.md
+echo "检查时间：$current_time"  >> Update.md
 
 echo "脚本自动提交结束"
   
