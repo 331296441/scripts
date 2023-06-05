@@ -23,7 +23,8 @@ up_lastime=`date -d "$(awk -F. '{print $1}' /proc/uptime) second ago" +"%Y-%m-%d
 mem_usage=`free -m |grep -E 'Mem|内存' | awk '{printf("%3.2f%%",$3/$2*100)}'`
 swap_usage=`free -m |grep -E 'Swap|交换' | awk '{printf "%.2f%%",$3/$2*100}'`
 
-if [[ "${swap_usage}" == "nan" ]]; then
+echo "===== $swap_usage ====="
+if [ ${swap_usage} == "nan" ]; then
   swap_usage=0
 fi
   
