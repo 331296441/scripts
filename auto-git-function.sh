@@ -52,4 +52,4 @@ commit_time=$(git log -1 --format=%cd --date=format:'%Y-%m-%d %H:%M:%S')
 echo "当前 Git commit 编号：$commit_id" > Update.md
 echo "提交时间：$commit_time" >> Update.md
 
-echo "scripts自动提交-done"
+echo "scripts自动git处理-done"
