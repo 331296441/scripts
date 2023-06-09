@@ -43,12 +43,6 @@ if [ -n "$(git status -s)" ]; then
 else
   echo "本地没有更新，跳过"
 fi
-commit_id=$(git rev-parse HEAD)
-commit_time=$(git log -1 --format=%cd --date=format:'%Y-%m-%d %H:%M:%S')
-echo "当前 Git commit 编号：$commit_id" > Update.md
-echo "提交时间：$commit_time" >> Update.md
-
-echo "scripts自动提交-done"
 
 
 
@@ -74,3 +68,10 @@ cpu_usage=$(top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}')
 echo "脚本自动提交结束"
   
   
+commit_id=$(git rev-parse HEAD)
+commit_time=$(git log -1 --format=%cd --date=format:'%Y-%m-%d %H:%M:%S')
+echo "当前 Git commit 编号：$commit_id" > Update.md
+echo "提交时间：$commit_time" >> Update.md
+echo "检查时间：$current_time"  >> Update.md
+
+echo "scripts自动提交-done"
