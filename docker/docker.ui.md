@@ -8,7 +8,7 @@
 docker run --restart always --name docker.ui -d -v /home/wood/docker.ui/docker.sock:/var/run/docker.sock -p 8999:8999 joinsunsoft/docker.ui
 ```
 
-## debian
+## debian amd64 only
 ``` shell
 docker run --restart always --name docker.ui -d -v /var/run/docker.sock:/var/run/docker.sock -p 8999:8999 joinsunsoft/docker.ui
 ```
