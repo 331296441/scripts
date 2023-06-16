@@ -11,3 +11,4 @@
 | 无序列表 | - 列表项1 <br> - 列表项2 | - 列表项1 <br> - 列表项2 |
 | 链接 | [链接文字](链接地址) | [百度](https://www.baidu.com/) |
 | 图片 | ![图片描述](图片地址) | ![猫咪](https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png) |
+|删除线|两边各两个【~~】是删除线|~~删除线~~|
