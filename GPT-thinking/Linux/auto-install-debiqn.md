@@ -177,3 +177,131 @@ d-i finish-install/reboot_in_progress note   # 安装完成后重启计算机
 ```
 
 希望这些注释可以帮助您更好地理解每个配置选项的作用。
+
+
+这些配置文件中有一些是必填项，必须提供正确的值才能让自动安装程序正确地配置系统。以下是必填项的列表：
+
+**autoinstall.cfg:**
+
+- network --bootproto: 您必须指定网络配置，例如使用静态IP地址还是使用DHCP。
+- rootpw --plaintext: 您必须设置root用户的密码。
+- user: 您必须为系统创建至少一个用户。
+
+**preseed.cfg:**
+
+- d-i debian-installer/locale: 您必须设置安装程序的语言。
+- d-i debian-installer/country: 您必须设置该计算机所在的国家或地区。
+- d-i debian-installer/locale: 您必须设置安装程序的区域设置。
+- d-i time/zone: 您必须设置时区。
+- d-i mirror/suite: 您必须选择要使用的Debian版本。
+- d-i mirror/protocol: 您必须选择要使用的软件源协议。
+- d-i mirror/http/hostname: 您必须指定软件源的主机名。
+- d-i mirror/http/directory: 您必须指定软件源的目录。
+- d-i partman-auto/method: 您必须选择分区方法，例如使用LVM分区还是常规分区。
+- d-i partman-auto/choose_recipe: 您必须选择一个分区方案。
+- d-i root-password: 您必须设置root用户的密码。
+- d-i passwd/username: 您必须为系统创建至少一个用户。
+- d-i passwd/user-password: 您必须为新创建的用户设置密码。
+- d-i grub-installer/only_debian: 您必须禁用安装其他操作系统的bootloader。
+
+在使用这些自动安装配置文件时，请务必确保将必填项正确填写。
+
+
+如果您想将语言设置为中文，时区设置为上海，并将默认软件源修改为清华源，可以按照以下步骤修改您的配置文件：
+
+**autoinstall.cfg:**
+
+```
+# Debian autoinstaller configuration file
+
+# Configure the network
+network --bootproto=dhcp --hostname=debian
+
+# Set the root password
+rootpw --plaintext debian
+
+# Create a user account
+user debian --fullname "Debian User" --password debian
+
+# Partition the disk
+partman-auto/method string lvm
+partman-auto-lvm/guided_size string max
+partman-auto/choose_recipe select atomic
+partman/default_filesystem string ext4
+
+# Disable the installation of the bootloader
+ubiquity grub-installer/only_debian boolean true
+ubiquity ubiquity/summary note
+
+# Set the language and country to China
+d-i debian-installer/locale string zh_CN.UTF-8
+d-i debian-installer/country string CN
+
+# Set the timezone to Shanghai
+d-i time/zone string Asia/Shanghai
+
+# Set the default software mirror to Tsinghua University mirror
+d-i mirror/protocol string http
+d-i mirror/http/hostname string mirrors.tuna.tsinghua.edu.cn
+d-i mirror/http/directory string /debian
+d-i mirror/http/proxy string
+
+```
+
+**preseed.cfg:**
+
+```
+# Debian preseed configuration file
+# See https://www.debian.org/releases/bullseye/amd64/apbs02.html.en for details
+
+# Enable the Debian installer to run in automated mode
+d-i debian-installer/allow_unauthenticated boolean true
+d-i debian-installer/locale string zh_CN.UTF-8
+d-i console-setup/ask_detect boolean false
+d-i keyboard-configuration/xkb-keymap select us
+
+# Set the language, country, and locale
+d-i debian-installer/language string zh_CN
+d-i debian-installer/country string CN
+d-i debian-installer/locale string zh_CN.UTF-8
+
+# Set the time zone
+d-i time/zone string Asia/Shanghai
+
+# Set the mirror to use for package downloads
+d-i mirror/suite string bullseye
+d-i mirror/protocol string http
+d-i mirror/http/hostname string mirrors.tuna.tsinghua.edu.cn
+d-i mirror/http/directory string /debian
+d-i mirror/http/proxy string
+
+# Set up the partitioning
+d-i partman-auto/method string lvm
+d-i partman-auto-lvm/guided_size string max
+d-i partman-auto/choose_recipe select atomic
+d-i partman/default_filesystem string ext4
+
+# Set up the network
+d-i netcfg/choose_interface select auto
+d-i netcfg/get_hostname string debian
+d-i netcfg/get_domain string example.com
+d-i netcfg/get_ipaddress string dhcp
+d-i netcfg/get_netmask string dhcp
+d-i netcfg/get_gateway string dhcp
+
+# Set the root password
+d-i passwd/root-password password debian
+d-i passwd/root-password-again password debian
+
+# Create a user account
+d-i passwd/user-fullname string Debian User
+d-i passwd/username string debian
+d-i passwd/user-password password debian
+d-i passwd/user-password-again password debian
+
+# Disable the installation of the bootloader
+d-i grub-installer/only_debian boolean true
+d-i finish-install/reboot_in_progress note
+```
+
+请注意，您需要将这些配置文件复制到安装介质的正确位置，并指定要使用的配置文件。此外，如果您需要设置其他选项，可以参考Debian的文档或其他可靠资源以获取更多信息。
