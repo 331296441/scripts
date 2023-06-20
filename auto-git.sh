@@ -17,7 +17,10 @@ fi
 echo "检查远程是否有更新"
 # 检查远程是否有更新
 git remote update &> /dev/null
-if [ -n "$(git status -uno | grep 'Your branch is behind')" ]; then
+if [ -n "$(git status -uno | grep '您的分支落后')" ]; then
+  echo "远程有更新，正在拉取代码..."
+  git pull
+elif [ -n "$(git status -uno | grep 'Your branch is behind')" ]; then
   echo "远程有更新，正在拉取代码..."
   git pull
 else
