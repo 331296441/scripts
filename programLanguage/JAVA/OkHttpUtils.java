@@ -1,124 +1,179 @@
-import okhttp3.*;
+// Java
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
-public class OkHttpUtils {
-    private static final MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json; charset=utf-8");
-    private static final MediaType MEDIA_TYPE_XML = MediaType.parse("application/xml; charset=utf-8");
-    private static final MediaType MEDIA_TYPE_FORM = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
-    private static final MediaType MEDIA_TYPE_MULTIPART = MediaType.parse("multipart/form-data; charset=utf-8");
-    private static final MediaType MEDIA_TYPE_OCTET_STREAM = MediaType.parse("application/octet-stream; charset=utf-8");
-    private static final MediaType MEDIA_TYPE_TEXT = MediaType.parse("text/plain; charset=utf-8");
-    private static final MediaType MEDIA_TYPE_IMAGE = MediaType.parse("image/*; charset=utf-8");
-    private static final MediaType MEDIA_TYPE_VIDEO = MediaType.parse("video/*; charset=utf-8");
-    private static final MediaType MEDIA_TYPE_AUDIO = MediaType.parse("audio/*; charset=utf-8");
+import okhttp3.*;
 
-    private OkHttpClient client;
+public class HttpUtils {
+    private static final OkHttpClient client = new OkHttpClient();
 
-    public OkHttpUtils() {
-        client = new OkHttpClient();
-    }
-
-    public String get(String url, Map<String, Object> headers, Map<String, Object> params, String contentType) throws IOException {
-        Request request = buildRequest(url, headers, params, contentType).get().build();
-        return executeRequest(request);
-    }
-
-    public String post(String url, Map<String, Object> headers, Map<String, Object> params, String contentType) throws IOException {
-        Request request = buildRequest(url, headers, params, contentType).post(buildRequestBody(params, contentType)).build();
-        return executeRequest(request);
-    }
-
-    public String postMultipart(String url, Map<String, Object> headers, Map<String, Object> params) throws IOException {
-        MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
-        for (Map.Entry<String, Object> entry : params.entrySet()) {
-            if (entry.getValue() instanceof byte[]) {
-                builder.addFormDataPart(entry.getKey(), null, RequestBody.create(MEDIA_TYPE_OCTET_STREAM, (byte[]) entry.getValue()));
-            } else {
-                builder.addFormDataPart(entry.getKey(), entry.getValue().toString());
-            }
-        }
-        Request request = buildRequest(url, headers, params, "multipart/form-data").post(builder.build()).build();
-        return executeRequest(request);
-    }
-
-    private Request.Builder buildRequest(String url, Map<String, Object> headers, Map<String, Object> params, String contentType) {
+    // GET request
+    public static String get(String url, Map<String, Object> headers) throws IOException {
         Request.Builder builder = new Request.Builder().url(url);
-        if (headers != null && !headers.isEmpty()) {
+        addHeaders(builder, headers);
+        Request request = builder.build();
+        Response response = client.newCall(request).execute();
+        return response.body().string();
+    }
+
+    // POST request with form data
+    public static String postForm(String url, Map<String, Object> headers, Map<String, Object> params) throws IOException {
+        FormBody.Builder formBuilder = new FormBody.Builder();
+        addParams(formBuilder, params);
+        RequestBody formBody = formBuilder.build();
+        Request.Builder builder = new Request.Builder().url(url).post(formBody);
+        addHeaders(builder, headers);
+        Request request = builder.build();
+        Response response = client.newCall(request).execute();
+        return response.body().string();
+    }
+
+    // POST request with JSON data
+    public static String postJson(String url, Map<String, Object> headers, String json) throws IOException {
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), json);
+        Request.Builder builder = new Request.Builder().url(url).post(requestBody);
+        addHeaders(builder, headers);
+        Request request = builder.build();
+        Response response = client.newCall(request).execute();
+        return response.body().string();
+    }
+
+    // POST request with XML data
+    public static String postXml(String url, Map<String, Object> headers, String xml) throws IOException {
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/xml"), xml);
+        Request.Builder builder = new Request.Builder().url(url).post(requestBody);
+        addHeaders(builder, headers);
+        Request request = builder.build();
+        Response response = client.newCall(request).execute();
+        return response.body().string();
+    }
+
+    // POST request with x-www-form-urlencoded data
+    public static String postUrlEncoded(String url, Map<String, Object> headers, Map<String, Object> params) throws IOException {
+        FormBody.Builder formBuilder = new FormBody.Builder();
+        addParams(formBuilder, params);
+        RequestBody requestBody = formBuilder.build();
+        Request.Builder builder = new Request.Builder().url(url).post(requestBody);
+        addHeaders(builder, headers);
+        Request request = builder.build();
+        Response response = client.newCall(request).execute();
+        return response.body().string();
+    }
+
+    // POST request with multipart/form-data
+    public static String postMultipart(String url, Map<String, Object> headers, Map<String, Object> params, Map<String, File> files) throws IOException {
+        MultipartBody.Builder multipartBuilder = new MultipartBody.Builder().setType(MultipartBody.FORM);
+        addParams(multipartBuilder, params);
+        addFiles(multipartBuilder, files);
+        RequestBody requestBody = multipartBuilder.build();
+        Request.Builder builder = new Request.Builder().url(url).post(requestBody);
+        addHeaders(builder, headers);
+        Request request = builder.build();
+        Response response = client.newCall(request).execute();
+        return response.body().string();
+    }
+
+    // POST request with octet-stream data
+    public static String postOctetStream(String url, Map<String, Object> headers, byte[] data) throws IOException {
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/octet-stream"), data);
+        Request.Builder builder = new Request.Builder().url(url).post(requestBody);
+        addHeaders(builder, headers);
+        Request request = builder.build();
+        Response response = client.newCall(request).execute();
+        return response.body().string();
+    }
+
+    // Helper method to add headers to the request builder
+    private static void addHeaders(Request.Builder builder, Map<String, Object> headers) {
+        if (headers != null) {
             for (Map.Entry<String, Object> entry : headers.entrySet()) {
-                builder.addHeader(entry.getKey(), entry.getValue().toString());
+                builder.addHeader(entry.getKey(), String.valueOf(entry.getValue()));
             }
         }
-        if (contentType != null) {
-            switch (contentType.toLowerCase()) {
-                case "application/json":
-                    builder.addHeader("Content-Type", "application/json");
-                    break;
-                case "application/xml":
-                    builder.addHeader("Content-Type", "application/xml");
-                    break;
-                case "application/x-www-form-urlencoded":
-                    builder.addHeader("Content-Type", "application/x-www-form-urlencoded");
-                    break;
-                case "multipart/form-data":
-                    builder.addHeader("Content-Type", "multipart/form-data");
-                    break;
-                case "application/octet-stream":
-                    builder.addHeader("Content-Type", "application/octet-stream");
-                    break;
-                case "text":
-                    builder.addHeader("Content-Type", "text/plain");
-                    break;
-                case "image":
-                    builder.addHeader("Content-Type", "image/*");
-                    break;
-                case "video":
-                    builder.addHeader("Content-Type", "video/*");
-                    break;
-                case "audio":
-                    builder.addHeader("Content-Type", "audio/*");
-                    break;
-                default:
-                    break;
-            }
-        }
-        return builder;
     }
 
-    private RequestBody buildRequestBody(Map<String, Object> params, String contentType) {
-        if (params == null || params.isEmpty()) {
-            return null;
+    // Helper method to add form data parameters to the form builder
+    private static void addParams(FormBody.Builder builder, Map<String, Object> params) {
+        if (params != null) {
+            for (Map.Entry<String, Object> entry : params.entrySet()) {
+                builder.add(entry.getKey(), String.valueOf(entry.getValue()));
+            }
         }
-        switch (contentType.toLowerCase()) {
-            case "application/json":
-                return RequestBody.create(MEDIA_TYPE_JSON, JsonUtils.toJson(params));
-            case "application/xml":
-                return RequestBody.create(MEDIA_TYPE_XML, XmlUtils.toXml(params));
-            case "application/x-www-form-urlencoded":
-                StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, Object> entry : params.entrySet()) {
-                    if (sb.length() > 0) {
-                        sb.append("&");
-                    }
-                    sb.append(entry.getKey()).append("=").append(entry.getValue().toString());
-                }
-                return RequestBody.create(MEDIA_TYPE_FORM, sb.toString());
+    }
+
+    // Helper method to add files to the multipart builder
+    private static void addFiles(MultipartBody.Builder builder, Map<String, File> files) {
+        if (files != null) {
+            for (Map.Entry<String, File> entry : files.entrySet()) {
+                File file = entry.getValue();
+                String fileName = file.getName();
+                String mimeType = getMimeType(fileName);
+                RequestBody fileBody = RequestBody.create(MediaType.parse(mimeType), file);
+                builder.addFormDataPart(entry.getKey(), fileName, fileBody);
+            }
+        }
+    }
+
+    // Helper method to get the MIME type of a file based on its extension
+    private static String getMimeType(String fileName) {
+        String extension = "";
+        int dotIndex = fileName.lastIndexOf('.');
+        if (dotIndex > 0 && dotIndex < fileName.length() - 1) {
+            extension = fileName.substring(dotIndex + 1).toLowerCase();
+        }
+        switch (extension) {
+            case "txt":
+                return "text/plain";
+            case "pdf":
+                return "application/pdf";
+            case "jpg":
+            case "jpeg":
+                return "image/jpeg";
+            case "png":
+                return "image/png";
+            case "gif":
+                return "image/gif";
+            case "mp4":
+                return "video/mp4";
+            case "mp3":
+                return "audio/mpeg";
             default:
-                return null;
+                return "application/octet-stream";
         }
     }
 
-    private String executeRequest(Request request) throws IOException {
-        try (Response response = client.newCall(request).execute()) {
-            if (!response.isSuccessful()) {
-                throw new IOException("Unexpected code " + response);
-            }
-            ResponseBody responseBody = response.body();
-            if (responseBody == null) {
-                return null;
-            }
-            return responseBody.string();
-        }
+    // Example usage
+    public static void main(String[] args) throws IOException {
+        String url = "https://...";
+        
+        // GET request
+        String response1 = HttpUtils.get(url, null);
+
+        // POST request with form data
+        Map<String, Object> params2 = Map.of("username", "test", "password", "123456");
+        String response2 = HttpUtils.postForm(url, null, params2);
+
+        // POST request with JSON data
+        String json3 = "{\"name\":\"test\",\"age\":18}";
+        String response3 = HttpUtils.postJson(url, null, json3);
+
+        // POST request with XML data
+        String xml4 = "<root><name>test</name><age>18</age></root>";
+        String response4 = HttpUtils.postXml(url, null, xml4);
+
+        // POST request with x-www-form-urlencoded data
+        Map<String, Object> params5 = Map.of("username", "test", "password", "123456");
+        String response5 = HttpUtils.postUrlEncoded(url, null, params5);
+
+        // POST request with multipart/form-data
+        Map<String, Object> params6 = Map.of("username", "test", "password", "123456");
+        Map<String, File> files6 = Map.of("file", new File("test.txt"));
+        String response6 = HttpUtils.postMultipart(url, null, params6, files6);
+
+        // POST request with octet-stream data
+        byte[] data7 = new byte[]{0x01, 0x02};
+        String response7 = HttpUtils.postOctetStream(url, null, data7);
     }
 }
