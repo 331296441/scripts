@@ -206,3 +206,48 @@ public class ControllerScanner {
 
 该代码会递归扫描指定路径下的所有文件，筛选出以`.java`结尾的文件，并将其转换为类名。然后，通过反射检查类是否带有`@Controller`或`@RestController`注解，如果是，则将其添加到Controller类名列表中。你需要将`path`参数替换为你的文件路径。
 
+
+
+# 以下是从文件路径中获取Mybatis Mapper名称的逻辑的代码示例：
+
+```java
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MapperScanner {
+
+    public static List<String> getMapperNamesFromPath(String path) {
+        List<String> mapperNames = new ArrayList<>();
+        File root = new File(path);
+        if (root.isDirectory()) {
+            scanDirectory(root, mapperNames);
+        }
+        return mapperNames;
+    }
+
+    private static void scanDirectory(File directory, List<String> mapperNames) {
+        File[] files = directory.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    scanDirectory(file, mapperNames);
+                } else if (file.isFile()) {
+                    if (file.getName().endsWith("Mapper.xml")) {
+                        String mapperName = getMapperNameFromFile(file);
+                        mapperNames.add(mapperName);
+                    }
+                }
+            }
+        }
+    }
+
+    private static String getMapperNameFromFile(File file) {
+        String absolutePath = file.getAbsolutePath();
+        String relativePath = absolutePath.substring(absolutePath.indexOf("src") + 4);
+        return relativePath.replace(File.separator, ".").replace(".xml", "");
+    }
+}
+```
+
+该代码会递归扫描指定路径下的所有文件，筛选出以`Mapper.xml`结尾的文件，并将其转换为Mapper名称。你需要将`path`参数替换为你的文件路径。
