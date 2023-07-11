@@ -1,4 +1,4 @@
-以下是一个简单的Spring Boot代码示例，可以读取给定的Git地址和分支名，并使用JGit库来获取分支和master之间的差异。然后，使用Spring Boot的AOP功能来拦截Controller方法的调用，并记录每个调用所涉及的SQL语句。最后，将涉及差异的Controller和SQL语句输出到控制台。
+# 以下是一个简单的Spring Boot代码示例，可以读取给定的Git地址和分支名，并使用JGit库来获取分支和master之间的差异。然后，使用Spring Boot的AOP功能来拦截Controller方法的调用，并记录每个调用所涉及的SQL语句。最后，将涉及差异的Controller和SQL语句输出到控制台。
 
 ```java
 import org.eclipse.jgit.api.Git;
@@ -119,3 +119,33 @@ public class GitDiffInterceptor extends AbstractMonitoringInterceptor {
     }
 }
 ```
+
+# 以下是获取所有Controller类名称的逻辑的代码示例：
+
+```java
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
+import org.springframework.core.type.filter.AnnotationTypeFilter;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ControllerScanner {
+
+    public static List<String> getControllerNames() {
+        List<String> controllerNames = new ArrayList<>();
+        ClassPathScanningCandidateComponentProvider scanner = new ClassPathScanningCandidateComponentProvider(false);
+        scanner.addIncludeFilter(new AnnotationTypeFilter(Controller.class));
+        scanner.addIncludeFilter(new AnnotationTypeFilter(RestController.class));
+        for (BeanDefinition beanDefinition : scanner.findCandidateComponents("com.example")) {
+            controllerNames.add(beanDefinition.getBeanClassName());
+        }
+        return controllerNames;
+    }
+}
+```
+
+该代码使用Spring的`ClassPathScanningCandidateComponentProvider`类扫描项目中所有带有`@Controller`或`@RestController`注解的类，并返回它们的类名列表。你需要将`com.example`替换为你的项目的根包名。
+
