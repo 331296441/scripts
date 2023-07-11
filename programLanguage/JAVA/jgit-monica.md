@@ -1,0 +1,121 @@
+以下是一个简单的Spring Boot代码示例，可以读取给定的Git地址和分支名，并使用JGit库来获取分支和master之间的差异。然后，使用Spring Boot的AOP功能来拦截Controller方法的调用，并记录每个调用所涉及的SQL语句。最后，将涉及差异的Controller和SQL语句输出到控制台。
+
+```java
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.diff.DiffEntry;
+import org.eclipse.jgit.diff.DiffFormatter;
+import org.eclipse.jgit.lib.ObjectId;
+import org.eclipse.jgit.lib.ObjectReader;
+import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
+import org.eclipse.jgit.treewalk.CanonicalTreeParser;
+import org.springframework.aop.interceptor.AbstractMonitoringInterceptor;
+import org.springframework.stereotype.Component;
+import javax.servlet.http.HttpServletRequest;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class GitDiffInterceptor extends AbstractMonitoringInterceptor {
+
+    private final Git git;
+
+    public GitDiffInterceptor(Git git) {
+        this.git = git;
+    }
+
+    @Override
+    protected Object invokeUnderTrace(HttpServletRequest request, Object target, Object... args) throws Exception {
+        // 获取当前分支和master之间的差异
+        Repository repository = git.getRepository();
+        ObjectId head = repository.resolve("HEAD");
+        ObjectId master = repository.resolve("master");
+        List<DiffEntry> diffs = getDiffs(repository, head, master);
+
+        // 获取所有Controller类的名称
+        List<String> controllerNames = getControllerNames();
+
+        // 拦截Controller方法的调用并记录SQL语句
+        List<String> sqlStatements = new ArrayList<>();
+        for (String controllerName : controllerNames) {
+            Object result = monitorInvocation(() -> super.invokeUnderTrace(request, target, args), controllerName);
+            if (result instanceof String) {
+                sqlStatements.add((String) result);
+            }
+        }
+
+        // 输出涉及差异的Controller和SQL语句
+        for (DiffEntry diff : diffs) {
+            String oldPath = diff.getOldPath();
+            String newPath = diff.getNewPath();
+            if (isControllerFile(oldPath) || isControllerFile(newPath)) {
+                System.out.println("Controller file changed: " + newPath);
+                System.out.println("Affected SQL statements:");
+                for (String sqlStatement : sqlStatements) {
+                    if (sqlStatement.contains(getControllerName(newPath))) {
+                        System.out.println(sqlStatement);
+                    }
+                }
+            } else if (isMybatisFile(oldPath) || isMybatisFile(newPath)) {
+                System.out.println("Mybatis file changed: " + newPath);
+                System.out.println("Affected SQL statements:");
+                for (String sqlStatement : sqlStatements) {
+                    if (sqlStatement.contains(getMybatisMapperName(newPath))) {
+                        System.out.println(sqlStatement);
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private List<DiffEntry> getDiffs(Repository repository, ObjectId head, ObjectId master) throws IOException {
+        List<DiffEntry> diffs = new ArrayList<>();
+        try (ObjectReader reader = repository.newObjectReader()) {
+            CanonicalTreeParser oldTreeIter = new CanonicalTreeParser();
+            oldTreeIter.reset(reader, master);
+            CanonicalTreeParser newTreeIter = new CanonicalTreeParser();
+            newTreeIter.reset(reader, head);
+            try (Git git = new Git(repository)) {
+                List<RevCommit> commits = git.log().addRange(master, head).call();
+                for (RevCommit commit : commits) {
+                    DiffFormatter formatter = new DiffFormatter(new ByteArrayOutputStream());
+                    formatter.setRepository(repository);
+                    formatter.format(commit.getParent(0), commit);
+                    List<DiffEntry> commitDiffs = formatter.scan(oldTreeIter, newTreeIter);
+                    diffs.addAll(commitDiffs);
+                }
+            }
+        }
+        return diffs;
+    }
+
+    private List<String> getControllerNames() {
+        // TODO: 实现获取所有Controller类名称的逻辑
+        return null;
+    }
+
+    private boolean isControllerFile(String filePath) {
+        return filePath.endsWith("Controller.java");
+    }
+
+    private boolean isMybatisFile(String filePath) {
+        return filePath.endsWith("Mapper.xml");
+    }
+
+    private String getControllerName(String filePath) {
+        // TODO: 实现从文件路径中获取Controller类名称的逻辑
+        return null;
+    }
+
+    private String getMybatisMapperName(String filePath) {
+        // TODO: 实现从文件路径中获取Mybatis Mapper名称的逻辑
+        return null;
+    }
+}
+```
