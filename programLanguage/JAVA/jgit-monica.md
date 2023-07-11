@@ -149,3 +149,60 @@ public class ControllerScanner {
 
 该代码使用Spring的`ClassPathScanningCandidateComponentProvider`类扫描项目中所有带有`@Controller`或`@RestController`注解的类，并返回它们的类名列表。你需要将`com.example`替换为你的项目的根包名。
 
+
+# 以下是从文件路径中获取Controller类名称的逻辑的代码示例：
+
+```java
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ControllerScanner {
+
+    public static List<String> getControllerNamesFromPath(String path) {
+        List<String> controllerNames = new ArrayList<>();
+        File root = new File(path);
+        if (root.isDirectory()) {
+            scanDirectory(root, controllerNames);
+        }
+        return controllerNames;
+    }
+
+    private static void scanDirectory(File directory, List<String> controllerNames) {
+        File[] files = directory.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    scanDirectory(file, controllerNames);
+                } else if (file.isFile()) {
+                    if (file.getName().endsWith(".java")) {
+                        String className = getClassNameFromFile(file);
+                        if (isControllerClass(className)) {
+                            controllerNames.add(className);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private static String getClassNameFromFile(File file) {
+        String absolutePath = file.getAbsolutePath();
+        String relativePath = absolutePath.substring(absolutePath.indexOf("src") + 4);
+        return relativePath.replace(File.separator, ".").replace(".java", "");
+    }
+
+    private static boolean isControllerClass(String className) {
+        try {
+            Class<?> clazz = Class.forName(className);
+            return clazz.isAnnotationPresent(org.springframework.stereotype.Controller.class)
+                    || clazz.isAnnotationPresent(org.springframework.web.bind.annotation.RestController.class);
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
+    }
+}
+```
+
+该代码会递归扫描指定路径下的所有文件，筛选出以`.java`结尾的文件，并将其转换为类名。然后，通过反射检查类是否带有`@Controller`或`@RestController`注解，如果是，则将其添加到Controller类名列表中。你需要将`path`参数替换为你的文件路径。
+
