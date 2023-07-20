@@ -64,4 +64,77 @@ public class HttpClientConnectionExample {
 
 
 # java的httpclient发送application/x-www-form-urlencoded和multipart/form-data有什么区别，代码如何编写
-在Java中使用HttpClient发送HTTP请求时，可以通过设置请求的Content-Type来指定发送的内容类型，从而实现发送application/x-www-form-urlencoded或multipart/form-data请求。区别：1. 参数编码方式不同：application/x-www-form-urlencoded使用URL编码格式，而multipart/form-data使用多部分编码格式。2. 参数封装方式不同：application/x-www-form-urlencoded将所有参数封装在请求主体中，multipart/form-data将参数和文件封装在不同的部分中。下面是两种内容类型的请求代码示例：1. 发送application/x-www-form-urlencoded请求：```javaimport org.apache.http.HttpEntity;import org.apache.http.HttpResponse;import org.apache.http.NameValuePair;import org.apache.http.client.HttpClient;import org.apache.http.client.entity.UrlEncodedFormEntity;import org.apache.http.client.methods.HttpPost;import org.apache.http.impl.client.HttpClients;import org.apache.http.message.BasicNameValuePair;import org.apache.http.util.EntityUtils;import java.util.ArrayList;import java.util.List;public class FormUrlencodedExample {    public static void main(String[] args) throws Exception {        HttpClient httpClient = HttpClients.createDefault();        HttpPost httpPost = new HttpPost("http://example.com/api");        // 设置请求参数        List<NameValuePair> params = new ArrayList<>();        params.add(new BasicNameValuePair("username", "admin"));        params.add(new BasicNameValuePair("password", "123456"));        httpPost.setEntity(new UrlEncodedFormEntity(params));        // 发送请求        HttpResponse response = httpClient.execute(httpPost);        // 处理响应        HttpEntity entity = response.getEntity();        String responseText = EntityUtils.toString(entity);        System.out.println(responseText);    }}```2. 发送multipart/form-data请求：```javaimport org.apache.http.HttpEntity;import org.apache.http.HttpResponse;import org.apache.http.client.HttpClient;import org.apache.http.client.entity.mime.MultipartEntityBuilder;import org.apache.http.client.methods.HttpPost;import org.apache.http.impl.client.HttpClients;import org.apache.http.util.EntityUtils;import java.io.File;public class MultipartFormDataExample {    public static void main(String[] args) throws Exception {        HttpClient httpClient = HttpClients.createDefault();        HttpPost httpPost = new HttpPost("http://example.com/api");        // 设置请求参数        MultipartEntityBuilder builder = MultipartEntityBuilder.create();        builder.addTextBody("username", "admin");        builder.addTextBody("password", "123456");        builder.addBinaryBody("file", new File("path/to/file"));        httpPost.setEntity(builder.build());        // 发送请求        HttpResponse response = httpClient.execute(httpPost);        // 处理响应        HttpEntity entity = response.getEntity();        String responseText = EntityUtils.toString(entity);        System.out.println(responseText);    }}```以上示例中，分别使用了`UrlEncodedFormEntity`和`MultipartEntityBuilder`来设置请求参数，并将其设置到`HttpPost`请求中。然后通过`HttpClient`执行请求，并处理响应。根据需要选择适合的内容类型和相应的参数封装方式。
+在Java中使用HttpClient发送HTTP请求时，可以通过设置请求的Content-Type来指定发送的内容类型，从而实现发送application/x-www-form-urlencoded或multipart/form-data请求。区别：
+1. 参数编码方式不同：application/x-www-form-urlencoded使用URL编码格式，而multipart/form-data使用多部分编码格式。
+2. 参数封装方式不同：application/x-www-form-urlencoded将所有参数封装在请求主体中，multipart/form-data将参数和文件封装在不同的部分中。
+ 
+下面是两种内容类型的请求代码示例：
+1. 发送application/x-www-form-urlencoded请求：
+
+
+```java
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FormUrlencodedExample {
+    public static void main(String[] args) throws Exception {
+        HttpClient httpClient = HttpClients.createDefault();
+        HttpPost httpPost = new HttpPost("http://example.com/api");
+// 设置请求参数        
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("username", "admin"));
+        params.add(new BasicNameValuePair("password", "123456"));
+        httpPost.setEntity(new UrlEncodedFormEntity(params));
+// 发送请求        
+        HttpResponse response = httpClient.execute(httpPost);
+// 处理响应        
+        HttpEntity entity = response.getEntity();
+        String responseText = EntityUtils.toString(entity);
+        System.out.println(responseText);
+    }
+}
+```
+
+2. 发送multipart/form-data请求：
+```java
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.mime.MultipartEntityBuilder;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+
+import java.io.File;
+
+public class MultipartFormDataExample {
+    public static void main(String[] args) throws Exception {
+        HttpClient httpClient = HttpClients.createDefault();
+        HttpPost httpPost = new HttpPost("http://example.com/api");
+// 设置请求参数        
+        MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+        builder.addTextBody("username", "admin");
+        builder.addTextBody("password", "123456");
+        builder.addBinaryBody("file", new File("path/to/file"));
+        httpPost.setEntity(builder.build());
+// 发送请求        
+        HttpResponse response = httpClient.execute(httpPost);
+// 处理响应        
+        HttpEntity entity = response.getEntity();
+        String responseText = EntityUtils.toString(entity);
+        System.out.println(responseText);
+    }
+}
+```
+
+以上示例中，分别使用了`UrlEncodedFormEntity`和`MultipartEntityBuilder`来设置请求参数，并将其设置到`HttpPost`请求中。然后通过`HttpClient`执行请求，并处理响应。根据需要选择适合的内容类型和相应的参数封装方式。
