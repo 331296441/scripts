@@ -67,7 +67,7 @@ zdot="${ZDOTDIR:-$HOME}"
 ZSH="${ZSH:-$HOME/.oh-my-zsh}"
 
 # Default settings
-REPO=${REPO:-ohmyzsh/ohmyzsh}
+REPO=${REPO:-mirrors/oh-my-zsh}
 REMOTE=${REMOTE:-https://gitee.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
 
