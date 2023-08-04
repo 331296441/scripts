@@ -91,3 +91,43 @@ public class AsymmetricEncryptionExample {
 ```
 
 在上述代码中，你需要将`YOUR_PUBLIC_KEY_STRING`替换为你实际的公钥字符串。然后，使用`getPublicKeyFromString`方法将公钥字符串转换为`PublicKey`对象。最后，使用`encrypt`方法对数据进行加密。加密后的结果将以Base64编码的形式进行打印。
+
+# 解密过程
+一旦你有了私钥的字符串表示，你可以使用该私钥对加密的数据进行解密。以下是一个示例代码，展示了如何使用私钥字符串进行解密：
+
+```java
+import java.security.*;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.util.Base64;
+
+public class AsymmetricEncryptionExample {
+    public static void main(String[] args) throws Exception {
+        String encryptedText = "YOUR_ENCRYPTED_TEXT";
+        String privateKeyString = "YOUR_PRIVATE_KEY_STRING";
+
+        // 将私钥字符串转换为PrivateKey对象
+        PrivateKey privateKey = getPrivateKeyFromString(privateKeyString);
+
+        // 解密
+        String decryptedText = decrypt(encryptedText, privateKey);
+        System.out.println("解密后的文本: " + decryptedText);
+    }
+
+    public static PrivateKey getPrivateKeyFromString(String privateKeyString) throws Exception {
+        byte[] privateKeyBytes = Base64.getDecoder().decode(privateKeyString);
+        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(privateKeyBytes);
+        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+        return keyFactory.generatePrivate(keySpec);
+    }
+
+    public static String decrypt(String encryptedText, PrivateKey privateKey) throws Exception {
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        cipher.init(Cipher.DECRYPT_MODE, privateKey);
+        byte[] encryptedBytes = Base64.getDecoder().decode(encryptedText);
+        byte[] decryptedBytes = cipher.doFinal(encryptedBytes);
+        return new String(decryptedBytes);
+    }
+}
+```
+
+在上述代码中，你需要将`YOUR_ENCRYPTED_TEXT`替换为实际的加密文本，将`YOUR_PRIVATE_KEY_STRING`替换为实际的私钥字符串。然后，使用`getPrivateKeyFromString`方法将私钥字符串转换为`PrivateKey`对象。最后，使用`decrypt`方法对加密的数据进行解密。解密后的结果将以字符串形式进行打印。
