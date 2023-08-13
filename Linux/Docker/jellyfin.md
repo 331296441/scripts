@@ -16,6 +16,7 @@ docker run -d --privileged \
 --volume /volume1/video:/media \
 nyanmisaka/jellyfin
 ```
+# 第二种方式
 
 
 ``` shell
