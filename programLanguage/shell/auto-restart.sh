@@ -8,12 +8,17 @@ LOCAL_IP=$(ip -o -4 addr list | grep 11.11.11 | awk '{print $4}' | cut -d/ -f1)
 
 while true; do
     for i in {1..15}; do
+    if $i -eq $LOCAL_IP | awk -F. '{print $4}'; then
+    echo " jump local ip"
+else
         if ping -c 1 11.11.11.$i >/dev/null; then
             echo "Connected to 11.11.11.$i"
             RESTART_COUNT=0
             break
+            else
+            echo "can not connect to 11.11.11.$i"
         fi
-
+fi
         if [ $i -eq 15 ]; then
             echo "Unable to connect to 11.11.11.1-11.11.11.15"
             ((RESTART_COUNT++))
