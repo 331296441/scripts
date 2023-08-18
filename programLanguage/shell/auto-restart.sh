@@ -1,14 +1,16 @@
-#!/bin/bash
+l#!/bin/bash
 
 RESTART_COUNT=0
 MAX_RESTART_COUNT=15
 
 # 获取本机除了属于11.11.11.0/24网段的IP之外的其他IP
 LOCAL_IP=$(ip -o -4 addr list | grep 11.11.11 | awk '{print $4}' | cut -d/ -f1)
+echo "LOCAL_IP is $LOCAL_IP"
 last=$LOCAL_IP | awk -F. '{print $4}'
+echo "last is $last"
 while true; do
     for i in {1..15}; do
-    if $i -eq $last; then
+    if "$i" -eq "$last"; then
     echo " jump local ip"
 else
         if ping -c 1 11.11.11.$i >/dev/null; then
