@@ -10,7 +10,7 @@ last=${LOCAL_IP##*.}
 echo "last is $last"
 while true; do
     for i in {1..15}; do
-    if "$i" -eq "$last"; then
+    if [ "$i" -eq "$last" ]; then
     echo " jump local ip"
 else
         if ping -c 1 11.11.11.$i >/dev/null; then
