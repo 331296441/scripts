@@ -3,6 +3,9 @@
 RESTART_COUNT=0
 MAX_RESTART_COUNT=15
 
+# 获取本机除了属于11.11.11.0/24网段的IP之外的其他IP
+LOCAL_IP=$(ip -o -4 addr list | grep 11.11.11 | awk '{print $4}' | cut -d/ -f1)
+
 while true; do
     for i in {1..15}; do
         if ping -c 1 11.11.11.$i >/dev/null; then
