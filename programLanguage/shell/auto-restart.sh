@@ -8,14 +8,16 @@ LOCAL_IP=$(ip -o -4 addr list | grep 11.11.11 | awk '{print $4}' | cut -d/ -f1)
 echo "LOCAL_IP is $LOCAL_IP"
 last=${LOCAL_IP##*.}
 echo "last is $last"
+RESTART_COUNT=0
 while true; do
     for i in {1..15}; do
     if [ "$i" -eq "$last" ]; then
-    echo " jump local ip"
+    echo " jump local ip: $LOCAL_IP"
 else
         if ping -c 1 11.11.11.$i >/dev/null; then
             echo "Connected to 11.11.11.$i"
             RESTART_COUNT=0
+            echo "wait for next 15 minuted"
             break
             else
             echo "can not connect to 11.11.11.$i"
