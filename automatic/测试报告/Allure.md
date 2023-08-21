@@ -11,4 +11,4 @@
 
 [java版集成Allure报告--注解的强大](https://www.jianshu.com/p/30086dcb4973)
 
-[](https://www.cnblogs.com/seamy/p/15654691.html)
+[TestNg+Allure框架搭建](https://www.cnblogs.com/seamy/p/15654691.html)
