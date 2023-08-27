@@ -16,7 +16,10 @@ docker run -d --privileged \
 --volume /volume1/video:/media \
 nyanmisaka/jellyfin
 ```
-# 第二种方式
+
+
+
+# 第二种方式 实测armv7 玩客云可用
 
 
 ``` shell
@@ -29,5 +32,5 @@ docker run -d --privileged \
 --volume /mnt/media/config:/config \
 --volume /mnt/media/cache:/cache \
 --volume /mnt/media:/media \
-nyanmisaka/jellyfin
+jellyfin/jellyfin
 ```
