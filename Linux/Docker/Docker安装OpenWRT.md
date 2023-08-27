@@ -37,5 +37,10 @@ config interface 'vpn0'
 
 拉取镜像并初始化
 ```
-docker run --restart always --name openwrt -d --network macnet --privileged --ip 192.168.124.101  -v /volume2/docker/openwrt/network:/etc/config/network registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64t /sbin/init
+docker run --restart always --name openwrt -d --network macnet --privileged --ip 192.168.124.101  -v /volume2/docker/openwrt/network:/etc/config/network registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64 /sbin/init
+```
+
+每日编译的
+```
+docker run --restart always --name openwrt -d --network macnet --privileged --ip 192.168.124.101  -v /volume2/docker/openwrt/network:/etc/config/network registry.cn-hangzhou.aliyuncs.com/zzsrv/openwrt:latest /sbin/init
 ```
