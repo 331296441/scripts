@@ -32,5 +32,6 @@ docker run -d --privileged \
 --volume /mnt/media/config:/config \
 --volume /mnt/media/cache:/cache \
 --volume /mnt/media:/media \
+-p 8096:8096 \
 jellyfin/jellyfin
 ```

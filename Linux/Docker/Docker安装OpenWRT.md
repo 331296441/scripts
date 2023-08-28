@@ -1,7 +1,7 @@
 # 安装网络
 
 ```shell
-docker network create -d macvlan --subnet=192.168.124.0/24 --gateway=192.168.124.1 -o parent=ovs_eth0 macnet
+docker network create -d macvlan --subnet=192.168.124.0/24 --gateway=192.168.124.1 -o parent=eth0 macnet
 ```
 
 创建openwrt目录
