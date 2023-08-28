@@ -1,6 +1,6 @@
 # jellyfin
 
-这两个在群晖上均不可用，直接使用工具更好
+直接使用工具更好，需暴露8096端口
 
 ``` shell
 docker run -d --privileged \
@@ -14,6 +14,7 @@ docker run -d --privileged \
 --volume /volume1/homes/wood/jellyfin/config:/config \
 --volume /volume1/homes/wood/jellyfin/cache:/cache \
 --volume /volume1/video:/media \
+-p 8096:8096 \
 nyanmisaka/jellyfin
 ```
 
