@@ -13,7 +13,7 @@ docker run -d --privileged \
 --add-host=www.themoviedb.org:54.192.22.105 \
 --volume /volume1/video/config:/config \
 --volume /volume1/video/cache:/cache \
---volume /volume1/video:/media \
+--volume /volume1/video/media:/media \
 -p 8096:8096 \
 nyanmisaka/jellyfin
 ```
