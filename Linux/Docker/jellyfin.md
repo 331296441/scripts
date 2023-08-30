@@ -2,7 +2,7 @@
 
 直接使用工具更好，需暴露8096端口
 
-``` shell
+```shell
 docker run -d --privileged \
 --restart=always \
 --name=jellyfin \
