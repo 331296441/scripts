@@ -26,18 +26,18 @@ restart: unless-stopped
 网心云跑网心云：
 
 ``` shell
-docker run -d --name OneCloud  --privileged -p 18888:18888 -v /mnt/software/wxedge:/storage  onething1/wxedge
+docker run -d --name OneCloud  --privileged --restart=always --net=host -v /mnt/software/wxedge:/storage  onething1/wxedge
 ```
 
 J3060跑网心云：
 
 ``` shell
-docker run -d --name OneCloud -p 18888:18888 --privileged -v /volume1/Download/wxedge_storage:/storage  onething1/wxedge
+docker run -d --name OneCloud -p 18888:18888 --privileged --restart=always -v /volume2/Download/wxedge_storage:/storage  onething1/wxedge
 ```
 你可以使用以下命令来运行一个 Docker 容器，并满足你的需求：
 
 ```
-docker run -d --name OneCloud --privileged --net=host --restart=always --memory=1G -v /volume2/Download/wxedge_storage:/storage cnk3x/xunlei
+docker run -d --name OneCloud --privileged --net=host --restart=always --memory=1G -v /volume2/Download/wxedge_storage:/storage onething1/wxedge
 ```
 
 这个命令中的参数解释如下：
@@ -49,7 +49,7 @@ docker run -d --name OneCloud --privileged --net=host --restart=always --memory=
 - `--cpus=0.5`：设置容器的 CPU 占用优先级为低（使用 0.5 个 CPU 核心）
 - `--memory=1G`：限制容器的内存使用为 1G
 - `-v /volume1/Download/wxedge_storage:/storage`：将主机的 `/volume1/Download/wxedge_storage` 路径映射为容器内的 `/storage` 路径
-- `cnk3x/xunlei`：使用镜像 `cnk3x/xunlei` 来运行容器
+- `onething1/wxedge`：使用镜像 `onething1/wxedge` 来运行容器
 
 请根据你的实际情况调整命令中的路径和参数。
 
