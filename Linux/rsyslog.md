@@ -30,7 +30,7 @@ sudo systemctl restart rsyslog
 使用以下命令在本地生成一条syslog：
 
 ```
-logger -t myapp "Test syslog message"
+logger -t myapp "[error] Test syslog message"
 ```
 
 其中，`-t myapp`指定syslog的应用程序名称为myapp。
