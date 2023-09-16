@@ -42,6 +42,7 @@ if [ -n "$(git status -s)" ]; then
   git add .
   git add --all .
   git commit -m "自动提交 by $HOST_NAME $current_time"
+  echo "自动提交完成"
   git push
 else
   echo "本地没有更新,跳过"
