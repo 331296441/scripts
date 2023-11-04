@@ -1,10 +1,21 @@
 #!/bin/bash
 
-if [[ ! -d "/mnt/projects/" ]]; then
-  echo "目录不存在，正在重启..."
-  logger -p error -t 磁盘异常 "磁盘找不到嘞:`uptime`"
-  sudo shutdown -r now
-else
-  echo "目录存在"
-  # logger -p info -t 磁盘正常 "磁盘正常:`df -h| grep sd | grep -v grep`"
+mount_point="/mnt/projects"  # 替换为你要检查的挂载点路径
+
+# 检查挂载点是否存在
+if [ ! -d "$mount_point" ]; then
+  echo "挂载点不存在"
+  logger -p error -t 磁盘异常 "挂载点不存在嘞:`uptime`"
+  shutdown -r now
+  exit 1
 fi
+
+# 检查挂载点是否可访问
+if ! ls "$mount_point" >/dev/null 2>&1; then
+  echo "无法访问挂载点"
+  logger -p error -t 磁盘异常 "无法访问挂载点嘞:`uptime`"
+  shutdown -r now
+  exit 1
+fi
+
+echo "挂载点可正常访问"
