@@ -26,7 +26,7 @@ restart: unless-stopped
 网心云跑网心云：
 
 ``` shell
-docker run -d --name OneCloud  --privileged --restart=always --network macnet -v /media/wxedge:/storage  onething1/wxedge
+docker run -d --name OneCloud  --privileged --restart=always --net=host -v /media/wxedge:/storage  onething1/wxedge
 ```
 
 J3060跑网心云：
