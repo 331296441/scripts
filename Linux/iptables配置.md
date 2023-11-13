@@ -32,6 +32,8 @@
 现在，您的防火墙规则已经永久保存，并且将在系统启动时自动加载。如果您需要添加更多规则，请使用 `iptables` 命令添加它们，然后使用 `netfilter-persistent save` 命令保存它们。
 
 
+
+
 要在Debian上配置防火墙以支持转发，您可以使用`iptables`命令。以下是一个示例配置：
 
 ```bash
@@ -45,7 +47,7 @@ iptables -P FORWARD ACCEPT
 iptables -P OUTPUT ACCEPT
 
 # 启用转发
-iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i eth0 -o zteb4ofk7u -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
 
 # 配置NAT转发
