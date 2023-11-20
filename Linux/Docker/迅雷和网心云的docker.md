@@ -32,7 +32,7 @@ docker run -d --name OneCloud  --privileged --restart=always --net=host -v /medi
 J3060跑网心云：
 
 ``` shell
-docker run -d --name OneCloud -p 18888:18888 --privileged --restart=always -v /volume2/Download/wxedge_storage:/storage  onething1/wxedge
+docker run -d --name OneCloud -p 18888:18888 --privileged --restart=always -v /volume1/wxedge:/storage  onething1/wxedge
 ```
 你可以使用以下命令来运行一个 Docker 容器，并满足你的需求：
 
