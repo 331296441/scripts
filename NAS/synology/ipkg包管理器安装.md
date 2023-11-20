@@ -1,6 +1,7 @@
 # ipkg包管理器安装
 
-[温控显示](https://post.smzdm.com/p/a8xze450/)
+[温控显示安装](https://post.smzdm.com/p/a8xze450/)
+
 
 ```
 mkdir /temp
