@@ -1,0 +1,27 @@
+#!/bin/bash
+neofetch
+
+# 获取系统信息
+HOSTNAME=$(hostname)
+KERNEL=$(uname -r)
+UPTIME=$(uptime -p)
+LOAD=$(cat /proc/loadavg | awk '{print $1 " " $2 " " $3}')
+MEMORY=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
+DISK=$(df -h / | awk '/^\/dev\// {print $3 "/" $2}')
+
+# 设置颜色和格式化
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# 显示系统信息
+echo -e "${GREEN}------------------------------------------------------------${NC}"
+echo -e "${GREEN} Welcome to ${HOSTNAME}!${NC}"
+echo -e "${GREEN}------------------------------------------------------------${NC}"
+echo -e "${YELLOW} Kernel:${NC} ${BLUE}${KERNEL}${NC}"
+echo -e "${YELLOW} Uptime:${NC} ${BLUE}${UPTIME}${NC}"
+echo -e "${YELLOW} Load:${NC} ${BLUE}${LOAD}${NC}"
+echo -e "${YELLOW} Memory:${NC} ${BLUE}${MEMORY}${NC}"
+echo -e "${YELLOW} Disk Usage:${NC} ${BLUE}${DISK}${NC}"
+echo -e "${GREEN}------------------------------------------------------------${NC}"
