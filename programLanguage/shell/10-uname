@@ -1,5 +1,4 @@
 #!/bin/bash
-neofetch
 
 # 获取系统信息
 HOSTNAME=$(hostname)
@@ -7,7 +6,15 @@ KERNEL=$(uname -r)
 UPTIME=$(uptime -p)
 LOAD=$(cat /proc/loadavg | awk '{print $1 " " $2 " " $3}')
 MEMORY=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
-DISK=$(df -h / | awk '/^\/dev\// {print $3 "/" $2}')
+
+# 获取磁盘信息
+DISKS=$(df -h | awk '/^\/dev\// {print $1 " " $3 "/" $2}')
+
+# 获取IP地址和接口名称
+INTERFACES=$(ip -o addr show | awk '$3 == "inet" {print $2 " " $4}')
+
+# 获取温度信息
+TEMPERATURES=$(sensors | awk '/^.*_thermal-virtual-0/ {print $1; getline; getline; print $2}')
 
 # 设置颜色和格式化
 GREEN='\033[0;32m'
@@ -23,5 +30,14 @@ echo -e "${YELLOW} Kernel:${NC} ${BLUE}${KERNEL}${NC}"
 echo -e "${YELLOW} Uptime:${NC} ${BLUE}${UPTIME}${NC}"
 echo -e "${YELLOW} Load:${NC} ${BLUE}${LOAD}${NC}"
 echo -e "${YELLOW} Memory:${NC} ${BLUE}${MEMORY}${NC}"
-echo -e "${YELLOW} Disk Usage:${NC} ${BLUE}${DISK}${NC}"
+echo -e "${YELLOW} Disks:${NC}"
+echo -e "${BLUE}${DISKS}${NC}"
+echo -e "${YELLOW} IP Addresses:${NC}"
+echo -e "${BLUE}${INTERFACES}${NC}"
+echo -e "${YELLOW} Temperatures:${NC}"
+if [[ -n "$TEMPERATURES" ]]; then
+    echo -e "${BLUE}${TEMPERATURES}${NC}"
+else
+    echo -e "${BLUE}No temperature information available.${NC}"
+fi
 echo -e "${GREEN}------------------------------------------------------------${NC}"
