@@ -13,6 +13,10 @@ else
   # 进入脚本所在目录
   cd "$SCRIPT_DIR"
 fi
+git remote remove origin || true
+git remote add gitee git@gitee.com:qq331296441/scripts.git || true
+git remote add github git@github.com:331296441/scripts.git || true
+git branch --set-upstream-to=gitee/master || true
 
 echo "检查远程是否有更新"
 # 检查远程是否有更新
@@ -43,7 +47,8 @@ if [ -n "$(git status -s)" ]; then
   git add --all .
   git commit -m "自动提交 by $HOST_NAME $current_time"
   echo "自动提交完成"
-  git push
+  git push gitee
+  git push github --force
 else
   echo "本地没有更新,跳过"
 fi
