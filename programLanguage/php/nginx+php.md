@@ -1,7 +1,7 @@
 # nginx+php安装可道云
 
 ``` shell
-apt update && apt install -y nginx php-fpm php-gd php-curl php-mbstring
+apt update && apt install -y nginx php-fpm php-gd php-curl php-mbstring php-intl php-intl php-imagick php-bz2 php-dev php-pear php-memcached memcached
 ```
 
 
