@@ -115,3 +115,88 @@ public class CSVGenerator {
 在上述示例中，我们使用一个`List<String[]>`来存储每行的数据。你可以根据需要添加任意多行数据。`generateCSV`函数接受这个数据列表，并将其转换为CSV格式的字符串。
 
 你可以将`generateCSV`函数放入你的Spring Boot应用中，并根据需要调用它来生成CSV数据。
+
+
+在 Spring Boot 中使用 OkHttp 框架实现该函数，可以按照以下步骤进行：
+
+1. 首先，确保你的项目中已经引入了 OkHttp 依赖。可以在 `pom.xml` 文件中添加以下依赖项：
+
+   ```xml
+   <dependency>
+       <groupId>com.squareup.okhttp3</groupId>
+       <artifactId>okhttp</artifactId>
+       <version>3.14.9</version>
+   </dependency>
+   ```
+
+   这将在你的项目中添加 OkHttp 依赖。
+
+2. 创建一个函数，接受一个 JSON 列表，并将其转换为 CSV 格式的字符串。以下是一个示例函数的代码：
+
+   ```java
+   import com.squareup.okhttp.OkHttpClient;
+   import com.squareup.okhttp.Request;
+   import com.squareup.okhttp.Response;
+   import org.json.JSONArray;
+   import org.json.JSONObject;
+
+   import java.io.IOException;
+   import java.util.ArrayList;
+   import java.util.Iterator;
+   import java.util.List;
+
+   public class JsonToCsvConverter {
+       public String convertJsonListToCsv(List<JSONObject> jsonList) {
+           List<String> keys = new ArrayList<>();
+           StringBuilder csvData = new StringBuilder();
+
+           // 获取所有元素的 key
+           if (!jsonList.isEmpty()) {
+               JSONObject firstJson = jsonList.get(0);
+               Iterator<String> keysIterator = firstJson.keys();
+               while (keysIterator.hasNext()) {
+                   keys.add(keysIterator.next());
+               }
+           }
+
+           // 构建 CSV 头部
+           csvData.append(String.join(",", keys)).append("\n");
+
+           // 构建 CSV 数据行
+           for (JSONObject json : jsonList) {
+               List<String> values = new ArrayList<>();
+               for (String key : keys) {
+                   if (json.has(key)) {
+                       values.add(json.get(key).toString());
+                   } else {
+                       values.add("");
+                   }
+               }
+               csvData.append(String.join(",", values)).append("\n");
+           }
+
+           return csvData.toString();
+       }
+
+       public static void main(String[] args) {
+           // 示例用法
+           List<JSONObject> jsonList = new ArrayList<>();
+           // 添加 JSON 对象到列表中
+           // jsonList.add(jsonObj1);
+           // jsonList.add(jsonObj2);
+           // ...
+
+           JsonToCsvConverter converter = new JsonToCsvConverter();
+           String csvData = converter.convertJsonListToCsv(jsonList);
+           System.out.println(csvData);
+       }
+   }
+   ```
+
+   在这个示例函数中，我们使用 OkHttp 发起 HTTP 请求获取 JSON 数据，并将其转换为 CSV 格式的字符串。你可以根据你的实际需求修改函数的实现。
+
+   注意：在示例中，我们假设 JSON 列表中的每个 JSON 对象都具有相同的键。如果 JSON 对象的键不一致，你可能需要根据实际情况进行适当的处理。
+
+3. 运行示例代码，将 JSON 列表转换为 CSV 格式的字符串。你可以根据你的实际需求修改示例代码中的部分，以适应你的项目。
+
+请注意，示例代码中的 OkHttp 版本为 3.14.9，你可以根据你的项目需要使用不同的版本。另外，确保你的项目中已经正确引入了 Ok
