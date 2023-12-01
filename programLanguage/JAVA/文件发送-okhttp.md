@@ -270,3 +270,101 @@ public class CSVGenerator {
 在示例的 `main` 方法中，我们提供了一个 JSON 字符串作为输入，并指定了输出的 CSV 文件路径。您可以根据您的实际需求修改这些值。
 
 请注意，这只是一个示例实现，您可能需要根据您的具体需求进行适当的修改。
+
+你可以使用Java的`CSVWriter`库来将JSON列表转换为CSV格式，并使用OkHttp库将CSV数据通过HTTP接口发送出去。以下是一个示例代码：
+
+```java
+import com.opencsv.CSVWriter;
+import okhttp3.*;
+
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> jsonList = List.of(
+                "{\"name\":\"name1\",\"id\":1,\"script\":\"{test:test1}\"}",
+                "{\"name\":\"name2\",\"id\":2,\"script\":\"{test:test2}\"}"
+        );
+
+        // 转换为CSV格式
+        String csvData = convertJsonListToCsv(jsonList);
+
+        // 发送CSV数据
+        String url = "http://example.com/api";
+        try {
+            sendCsvData(url, csvData);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static String convertJsonListToCsv(List<String> jsonList) {
+        StringWriter stringWriter = new StringWriter();
+        CSVWriter csvWriter = new CSVWriter(stringWriter);
+
+        // 写入CSV标题行
+        csvWriter.writeNext(new String[]{"name", "id", "script"});
+
+        // 写入JSON数据行
+        for (String json : jsonList) {
+            // 解析JSON
+            // 这里使用了fastjson库，你需要在项目中引入fastjson的依赖
+            com.alibaba.fastjson.JSONObject jsonObject = com.alibaba.fastjson.JSONObject.parseObject(json);
+
+            // 提取字段值
+            String name = jsonObject.getString("name");
+            String id = jsonObject.getString("id");
+            String script = jsonObject.getString("script");
+
+            // 写入CSV行
+            csvWriter.writeNext(new String[]{name, id, script});
+        }
+
+        csvWriter.close();
+        return stringWriter.toString();
+    }
+
+    private static void sendCsvData(String url, String csvData) throws IOException {
+        OkHttpClient client = new OkHttpClient();
+
+        RequestBody requestBody = RequestBody.create(MediaType.parse("text/csv"), csvData);
+        Request request = new Request.Builder()
+                .url(url)
+                .put(requestBody)
+                .build();
+
+        Response response = client.newCall(request).execute();
+        if (response.isSuccessful()) {
+            System.out.println("CSV data sent successfully.");
+        } else {
+            System.out.println("Failed to send CSV data. Response code: " + response.code());
+        }
+    }
+}
+```
+
+请确保在你的项目中添加以下依赖：
+
+```xml
+<dependency>
+    <groupId>com.opencsv</groupId>
+    <artifactId>opencsv</artifactId>
+    <version>5.5.2</version>
+</dependency>
+
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>fastjson</artifactId>
+    <version>1.2.76</version>
+</dependency>
+
+<dependency>
+    <groupId>com.squareup.okhttp3</groupId>
+    <artifactId>okhttp</artifactId>
+    <version>4.9.1</version>
+</dependency>
+```
+
+这个示例代码将JSON列表转换为CSV格式，并通过HTTP PUT请求发送CSV数据到指定的URL。你可以根据实际情况修改URL和JSON列表。
