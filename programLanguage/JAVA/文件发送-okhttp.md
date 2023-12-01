@@ -200,3 +200,73 @@ public class CSVGenerator {
 3. 运行示例代码，将 JSON 列表转换为 CSV 格式的字符串。你可以根据你的实际需求修改示例代码中的部分，以适应你的项目。
 
 请注意，示例代码中的 OkHttp 版本为 3.14.9，你可以根据你的项目需要使用不同的版本。另外，确保你的项目中已经正确引入了 Ok
+
+
+如果您想使用 Fastjson 库来处理 JSON 字符串，您可以使用以下代码示例：
+
+```java
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.opencsv.CSVWriter;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class CSVGenerator {
+
+    public static void generateCSV(String input, String output) {
+        JSONArray jsonArray = JSONArray.parseArray(input);
+
+        List<String[]> data = new ArrayList<>();
+
+        // 遍历 JSON 数组
+        for (int i = 0; i < jsonArray.size(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+            // 提取列标题
+            Iterator<String> keys = jsonObject.keySet().iterator();
+            List<String> headers = new ArrayList<>();
+            while (keys.hasNext()) {
+                headers.add(keys.next());
+            }
+
+            // 提取列值
+            List<String> values = new ArrayList<>();
+            for (String header : headers) {
+                values.add(jsonObject.getString(header));
+            }
+
+            // 添加到数据列表
+            data.add(values.toArray(new String[0]));
+        }
+
+        // 写入 CSV 文件
+        try (CSVWriter writer = new CSVWriter(new FileWriter(output))) {
+            // 写入列标题
+            writer.writeNext(headers.toArray(new String[0]));
+
+            // 写入数据
+            writer.writeAll(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        String input = "[{\"name\":\"name1\",\"id\":1,\"script\":\"{test:test1}\"},{\"name\":\"name2\",\"id\":2,\"script\":\"{test:test2}\"}]";
+        String output = "output.csv";
+        generateCSV(input, output);
+    }
+}
+```
+
+这个示例代码与之前的示例非常相似，只是使用了 Fastjson 库来解析 JSON 字符串。您需要将 Fastjson 库添加到您的项目依赖中。
+
+在 `generateCSV` 函数中，我们使用 `JSONArray.parseArray` 方法将输入的 JSON 字符串解析为 Fastjson 的 `JSONArray` 对象。然后，我们使用 Fastjson 的 API 来提取列标题和列值，并将它们写入 CSV 文件中。
+
+在示例的 `main` 方法中，我们提供了一个 JSON 字符串作为输入，并指定了输出的 CSV 文件路径。您可以根据您的实际需求修改这些值。
+
+请注意，这只是一个示例实现，您可能需要根据您的具体需求进行适当的修改。
