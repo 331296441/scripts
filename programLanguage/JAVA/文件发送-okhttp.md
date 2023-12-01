@@ -369,3 +369,224 @@ public class Main {
 
 这个示例代码将JSON列表转换为CSV格式，并通过HTTP PUT请求发送CSV数据到指定的URL。你可以根据实际情况修改URL和JSON列表。
 
+如果字段列表的列数量和列名称不固定，你可以使用动态的方式生成CSV文件。以下是修改后的示例代码：
+
+```java
+import com.opencsv.CSVWriter;
+import okhttp3.*;
+
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> jsonList = List.of(
+                "{\"name\":\"name1\",\"id\":1,\"script\":\"{test:test1}\"}",
+                "{\"name\":\"name2\",\"id\":2,\"script\":\"{test:test2}\"}"
+        );
+
+        // 转换为CSV格式
+        String csvData = convertJsonListToCsv(jsonList);
+
+        // 发送CSV数据
+        String url = "http://example.com/api";
+        try {
+            sendCsvData(url, csvData);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static String convertJsonListToCsv(List<String> jsonList) {
+        StringWriter stringWriter = new StringWriter();
+        CSVWriter csvWriter = new CSVWriter(stringWriter);
+
+        // 获取所有可能的列名
+        List<String> columnNames = getAllColumnNames(jsonList);
+
+        // 写入CSV标题行
+        csvWriter.writeNext(columnNames.toArray(new String[0]));
+
+        // 写入JSON数据行
+        for (String json : jsonList) {
+            // 解析JSON
+            com.alibaba.fastjson.JSONObject jsonObject = com.alibaba.fastjson.JSONObject.parseObject(json);
+
+            // 提取字段值
+            List<String> rowValues = new ArrayList<>();
+            for (String columnName : columnNames) {
+                String value = jsonObject.getString(columnName);
+                rowValues.add(value);
+            }
+
+            // 写入CSV行
+            csvWriter.writeNext(rowValues.toArray(new String[0]));
+        }
+
+        csvWriter.close();
+        return stringWriter.toString();
+    }
+
+    private static List<String> getAllColumnNames(List<String> jsonList) {
+        List<String> columnNames = new ArrayList<>();
+
+        for (String json : jsonList) {
+            com.alibaba.fastjson.JSONObject jsonObject = com.alibaba.fastjson.JSONObject.parseObject(json);
+            for (String columnName : jsonObject.keySet()) {
+                if (!columnNames.contains(columnName)) {
+                    columnNames.add(columnName);
+                }
+            }
+        }
+
+        return columnNames;
+    }
+
+    private static void sendCsvData(String url, String csvData) throws IOException {
+        OkHttpClient client = new OkHttpClient();
+
+        RequestBody requestBody = RequestBody.create(MediaType.parse("text/csv"), csvData);
+        Request request = new Request.Builder()
+                .url(url)
+                .put(requestBody)
+                .build();
+
+        Response response = client.newCall(request).execute();
+        if (response.isSuccessful()) {
+            System.out.println("CSV data sent successfully.");
+        } else {
+            System.out.println("Failed to send CSV data. Response code: " + response.code());
+        }
+    }
+}
+```
+
+这个示例代码会根据传入的JSON列表动态生成CSV文件的列名和列数量。它会遍历所有的JSON对象，提取所有可能的列名，并将它们作为CSV文件的标题行。然后，它会遍历每个JSON对象，提取对应列名的字段值，并将它们作为CSV文件的数据行。
+
+请确保在你的项目中添加以下依赖：
+
+```xml
+<dependency>
+    <groupId>com.opencsv</groupId>
+    <artifactId>opencsv</artifactId>
+    <version>5.5.2</version>
+</dependency
+```
+
+非常抱歉，我在之前的代码中犯了一个错误。在使用`CSVWriter`时，我们需要将`StringWriter`包装在`BufferedWriter`中。以下是修正后的代码：
+
+```java
+import com.opencsv.CSVWriter;
+import okhttp3.*;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> jsonList = List.of(
+                "{\"name\":\"name1\",\"id\":1,\"script\":\"{test:test1}\"}",
+                "{\"name\":\"name2\",\"id\":2,\"script\":\"{test:test2}\"}"
+        );
+
+        // 转换为CSV格式
+        String csvData = convertJsonListToCsv(jsonList);
+
+        // 发送CSV数据
+        String url = "http://example.com/api";
+        try {
+            sendCsvData(url, csvData);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static String convertJsonListToCsv(List<String> jsonList) {
+        StringWriter stringWriter = new StringWriter();
+        BufferedWriter bufferedWriter = new BufferedWriter(stringWriter);
+        CSVWriter csvWriter = new CSVWriter(bufferedWriter);
+
+        // 获取所有可能的列名
+        List<String> columnNames = getAllColumnNames(jsonList);
+
+        // 写入CSV标题行
+        csvWriter.writeNext(columnNames.toArray(new String[0]));
+
+        // 写入JSON数据行
+        for (String json : jsonList) {
+            // 解析JSON
+            com.alibaba.fastjson.JSONObject jsonObject = com.alibaba.fastjson.JSONObject.parseObject(json);
+
+            // 提取字段值
+            List<String> rowValues = new ArrayList<>();
+            for (String columnName : columnNames) {
+                String value = jsonObject.getString(columnName);
+                rowValues.add(value);
+            }
+
+            // 写入CSV行
+            csvWriter.writeNext(rowValues.toArray(new String[0]));
+        }
+
+        try {
+            csvWriter.close();
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return stringWriter.toString();
+    }
+
+    private static List<String> getAllColumnNames(List<String> jsonList) {
+        List<String> columnNames = new ArrayList<>();
+
+        for (String json : jsonList) {
+            com.alibaba.fastjson.JSONObject jsonObject = com.alibaba.fastjson.JSONObject.parseObject(json);
+            for (String columnName : jsonObject.keySet()) {
+                if (!columnNames.contains(columnName)) {
+                    columnNames.add(columnName);
+                }
+            }
+        }
+
+        return columnNames;
+    }
+
+    private static void sendCsvData(String url, String csvData) throws IOException {
+        OkHttpClient client = new OkHttpClient();
+
+        RequestBody requestBody = RequestBody.create(MediaType.parse("text/csv"), csvData);
+        Request request = new Request.Builder()
+                .url(url)
+                .put(requestBody)
+                .build();
+
+        Response response = client.newCall(request).execute();
+        if (response.isSuccessful()) {
+            System.out.println("CSV data sent successfully.");
+        } else {
+            System.out.println("Failed to send CSV data. Response code: " + response.code());
+        }
+    }
+}
+```
+
+请确保在你的项目中添加以下依赖：
+
+```xml
+<dependency>
+    <groupId>com.opencsv</groupId>
+    <artifactId>opencsv</artifactId>
+    <version>5.5.2</version>
+</dependency>
+
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>fastjson</artifactId>
+    <version>1.2.76</
