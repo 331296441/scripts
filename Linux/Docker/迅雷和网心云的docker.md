@@ -53,3 +53,8 @@ docker run -d --name OneCloud --privileged --net=host --restart=always -v /volum
 
 请根据你的实际情况调整命令中的路径和参数。
 
+
+
+```
+docker run -d --name OneCloud --privileged --net=host --restart=always -v /mnt/wxedge:/storage onething1/wxedge
+```
