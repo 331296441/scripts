@@ -56,5 +56,5 @@ docker run -d --name OneCloud --privileged --net=host --restart=always -v /volum
 
 
 ```
-docker run -d --name OneCloud --privileged --net=host --restart=always -v /mnt/sata-1/wxedge:/storage onething1/wxedge
+docker run -d --name OneCloud --privileged --net=host --restart=unless-stopped -v /mnt/sata1-1/wxedge:/storage onething1/wxedge
 ```
