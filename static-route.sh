@@ -12,7 +12,7 @@ COMMAND="route add -net 11.11.11.0 netmask 255.255.255.0 gw 192.168.124.14"
 # 执行telnet连接并执行命令
 expect << EOF
 spawn telnet $HOST $PORT
-expect "Username:"
+expect "NX30Pro login:"
 send "$USERNAME\r"
 expect "Password:"
 send "$PASSWORD\r"
