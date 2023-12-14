@@ -10,8 +10,8 @@ services:
     ports:
       - 4533:4533 #左侧端口如有冲突，可随意修改
     volumes:
-      - ./navidrome:/data #数据路径
-      - /volume1/media/music:/music:ro #音乐路径
+      - /DATA/AppData/navidrome:/data #数据路径
+      - /DATA/Music:/music:ro #音乐路径
     environment:
       #程序默认语言
       - ND_DEFAULTLANGUAGE=zh-Hans
