@@ -1,4 +1,6 @@
+# 音乐播放器
 
+https://www.himiku.com/archives/navidrome.html
 
 ``` xml
 version: "3"
@@ -10,7 +12,7 @@ services:
     ports:
       - 4533:4533 #左侧端口如有冲突，可随意修改
     volumes:
-      - /DATA/AppData/navidrome:/data #数据路径
+      - /DATA/AppData/navidrome/data:/data #数据路径
       - /DATA/Music:/music:ro #音乐路径
     environment:
       #程序默认语言
