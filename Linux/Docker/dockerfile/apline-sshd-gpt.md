@@ -49,3 +49,48 @@ docker run -d --name mycontainer --network macnet --privileged -p 22:22 -p 80:80
 这将在后台运行一个名为mycontainer的容器，并将其连接到名为macnet的网络。容器将具有高级权限，并且SSH和Nginx端口将映射到主机的22和80端口。
 
 请确保您已经在Linux上安装了Docker，并且已经创建了名为macnet的网络。
+
+## docker-compose
+您可以使用以下的docker-compose.yml文件来实现您的需求：
+
+```yaml
+version: '3'
+services:
+  alpine:
+    image: alpine:latest
+    privileged: true
+    networks:
+      - macnet
+    ports:
+      - 22:22
+      - 80:80
+    volumes:
+      - ./ssh:/etc/ssh
+    command: sh -c "apk update && \
+                    apk add --no-cache vim wget curl iputils ifconfig bind-tools git openssh npm nodejs nginx php7.4-fpm && \
+                    rm -rf /var/cache/apk/* && \
+                    apk add --no-cache openssh && \
+                    ssh-keygen -A && \
+                    sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+                    echo 'root:password' | chpasswd && \
+                    ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N '' && \
+                    ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N '' && \
+                    ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N '' && \
+                    /usr/sbin/sshd && \
+                    nginx -g 'daemon off;'"
+networks:
+  macnet:
+    external: true
+```
+
+请注意，这个docker-compose.yml文件假设您已经创建了名为macnet的网络，并且您可以根据需要进行调整。此外，强烈建议您在实际使用中更改默认的root密码。
+
+要使用docker-compose启动容器，请在包含docker-compose.yml文件的目录中运行以下命令：
+
+```bash
+docker-compose up -d
+```
+
+这将在后台启动一个名为alpine的容器，并将其连接到名为macnet的网络。容器将具有高级权限，并且SSH和Nginx端口将映射到主机的22和80端口。
+
+请确保您已经在Linux上安装了Docker和Docker Compose，并且已经创建了名为macnet的网络。
