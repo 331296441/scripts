@@ -26,7 +26,8 @@ docker run -d \
   --privileged \
   --name xunlei \
   --hostname mynas \
-  --network host \
+  --network bridge \
+  -p 2345:2345 \
   -v /overlay/Configs/Xunlei:/xunlei/data \
   -v /mnt/sda1/Downloads:/xunlei/downloads \
   --restart unless-stopped \
