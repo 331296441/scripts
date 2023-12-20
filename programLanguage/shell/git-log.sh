@@ -3,9 +3,6 @@
 # 设置Git项目路径
 PROJECT_PATH="$1"
 
-# 设置Git用户名列表
-GIT_USERNAMES=("User1" "User2" "User3")
-
 # 检查参数是否为空
 if [ -z "$PROJECT_PATH" ]; then
   echo "请提供Git项目路径作为参数"
@@ -17,6 +14,9 @@ cd "$PROJECT_PATH" || exit 1
 
 # 获取所有分支列表
 branches=$(git branch -a | grep -v "remotes" | sed 's/^\* //')
+
+# 获取所有Git用户列表
+git_users=$(git log --format='%aN' | sort -u)
 
 # 输出表头
 printf "%-20s | %-15s | %-15s | %-15s\n" "分支" "用户名" "修改文件数" "插入行数"
@@ -30,7 +30,7 @@ for branch in $branches; do
   printf "%-20s\n" "$branch"
 
   # 遍历每个用户名并统计代码量
-  for username in "${GIT_USERNAMES[@]}"; do
+  for username in $git_users; do
     # 统计代码量
     stats=$(git log --author="$username" --shortstat --pretty=format:"" | awk '/files? changed/ {files+=$1; inserted+=$4} END {print files, inserted}')
 
