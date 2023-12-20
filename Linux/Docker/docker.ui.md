@@ -5,7 +5,7 @@
 
 ## 群晖
 ``` shell
-docker run --restart always --name docker.ui -d -v /home/wood/docker.ui/docker.sock:/var/run/docker.sock -p 8999:8999 joinsunsoft/docker.ui
+docker run --restart None --name docker.ui -d -v /home/wood/docker.ui/docker.sock:/var/run/docker.sock -p 8999:8999 joinsunsoft/docker.ui
 ```
 
 ## debian amd64 only
