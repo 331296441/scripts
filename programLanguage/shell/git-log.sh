@@ -16,7 +16,11 @@ cd "$PROJECT_PATH" || exit 1
 branches=$(git branch -a | grep -v "remotes" | sed 's/^\* //')
 
 # 获取所有Git用户列表
-git_users=$(git log --format='%aN' | sort -u)
+if [ -n "$ZSH_VERSION" ]; then
+  git_users=$(git log --format='%aN' | sort -u)
+else
+  git_users=$(git log --format='%aN' | LC_ALL=C.UTF-8 sort -u)
+fi
 
 # 输出表头
 printf "%-20s | %-15s | %-15s | %-15s\n" "分支" "用户名" "修改文件数" "插入行数"
@@ -32,7 +36,11 @@ for branch in $branches; do
   # 遍历每个用户名并统计代码量
   for username in $git_users; do
     # 统计代码量
-    stats=$(git log --author="$username" --shortstat --pretty=format:"" | awk '/files? changed/ {files+=$1; inserted+=$4} END {print files, inserted}')
+    if [ -n "$ZSH_VERSION" ]; then
+      stats=$(git log --author="$username" --shortstat --pretty=format:"" | awk '/files? changed/ {files+=$1; inserted+=$4} END {print files, inserted}')
+    else
+      stats=$(git log --author="$username" --shortstat --pretty=format:"" | awk '/files? changed/ {files+=$1; inserted+=$4} END {print files, inserted}' | LC_ALL=C.UTF-8)
+    fi
 
     # 输出统计结果
     printf "%-20s | %-15s | %-15s | %-15s\n" "" "$username" "$stats"
