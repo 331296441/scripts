@@ -1,15 +1,14 @@
 version: '3.9'
 services:
-
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     ports:
       - 3000:3000 #左侧端口可修改，如果有公网请一定要设置成比较少见的端口，避免内部服务泄露
     volumes:
-      - /mnt/Documents/docker-config/homepage:/app/config #群晖需要确保本地文件夹已预先创建
+      - /mnt/projects/scripts/Linux/Docker/docker-compose/homepageconfig:app/config #群晖需要确保本地文件夹已预先创建
       - /var/run/docker.sock:/var/run/docker.sock # (可选) Docker 配置
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
     restart: unless-stopped
