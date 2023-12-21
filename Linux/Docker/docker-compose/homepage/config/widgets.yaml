@@ -7,9 +7,6 @@
     memory: true
     disk: /
 
-- search:
-    provider: bing
-    target: _blank
     
 - weatherapi:
      label: 北京
@@ -18,3 +15,7 @@
      units: metric  #imperial 
      apiKey: 389f9f027cfc41298c9112212232112
      cache: 60
+
+- search:
+    provider: bing
+    target: _blank
