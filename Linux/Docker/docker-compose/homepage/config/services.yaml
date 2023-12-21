@@ -44,7 +44,7 @@
 
 - J3060:
     - Aria2:
-        href: http://192.168.124.101/aria2ng
+        href: http://192.168.124.101/ariang
         description: 下载工具
         icon: https://pic2.zhimg.com/v2-9c7e25d52582980ce8a03a69c2e17db5_1440w.jpg?source=172ae18b
     - 管理页面:
