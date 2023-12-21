@@ -9,7 +9,7 @@
 - datetime:
     text_size: xl
     format:
-      timeStyle: long
+      timeStyle: short
       hour12: false
 
     
