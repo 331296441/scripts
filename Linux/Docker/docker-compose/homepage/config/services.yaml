@@ -5,7 +5,7 @@
 - OneCloud:
     - casaOS:
         ping: 192.168.124.14
-        icon: https://ts1.cn.mm.bing.net/th?id=ODLS.bcccf52e-76a4-41da-a7a2-fb1881350703&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
+        icon: debian.png
         href: http://192.168.124.14
         description: 管理工具
     - Portainer:
