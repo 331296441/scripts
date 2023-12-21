@@ -10,3 +10,11 @@
 - search:
     provider: bing
     target: _blank
+    
+- weatherapi:
+     label: 北京
+     latitude: 39.979958
+     longitude: 116.382408
+     units: metric  #imperial 
+     apiKey: YOUR API KEY
+     cache: 5
