@@ -16,5 +16,5 @@
      latitude: 39.979958
      longitude: 116.382408
      units: metric  #imperial 
-     apiKey: YOUR API KEY
-     cache: 5
+     apiKey: 389f9f027cfc41298c9112212232112
+     cache: 60
