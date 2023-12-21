@@ -54,7 +54,14 @@
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.A2450BEC-5595-40BA-9F13-D9EC6AB74B9F&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
         server: StoreOS
         container: HomePage
-	
+    - Portainer:
+        description: 容器情况
+        icon: portainer.png
+        widget:
+            type: portainer
+            url: http://192.168.124.14:9000
+            env: 4
+            key: ptr_/WFI4DVzzDX1h8/WUX/qcKqFX5orH7GmimVmutK0QdY=
 - D410c:
     - kodbox:
         href: http://11.11.11.3/

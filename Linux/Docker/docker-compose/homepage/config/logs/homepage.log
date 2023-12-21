@@ -454,3 +454,71 @@
  29 | - J3060:
 [2023-12-21T02:57:17.684Z] error: <credentialedProxyHandler> HTTP Error 401 calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json?all=1
 [2023-12-21T02:57:29.447Z] error: <credentialedProxyHandler> HTTP Error 401 calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json?all=1
+[2023-12-21T06:06:40.575Z] error: tab characters must not be used in indentation (59:1)
+
+ 56 |         container: HomePage
+ 57 |     - Portainer:
+ 58 |         description: 容器情况
+ 59 | →widget:
+------^
+ 60 |             type: portainer
+ 61 |             url: http://192.168 ...
+[2023-12-21T06:06:41.055Z] error: tab characters must not be used in indentation (59:1)
+
+ 56 |         container: HomePage
+ 57 |     - Portainer:
+ 58 |         description: 容器情况
+ 59 | →widget:
+------^
+ 60 |             type: portainer
+ 61 |             url: http://192.168 ...
+[2023-12-21T06:06:41.546Z] error: Failed to load services.yaml, please check for errors
+[2023-12-21T06:06:41.548Z] error: YAMLException: tab characters must not be used in indentation (59:1)
+
+ 56 |         container: HomePage
+ 57 |     - Portainer:
+ 58 |         description: 容器情况
+ 59 | →widget:
+------^
+ 60 |             type: portainer
+ 61 |             url: http://192.168 ...
+[2023-12-21T06:07:23.895Z] error: Failed to load services.yaml, please check for errors
+[2023-12-21T06:07:23.897Z] error: YAMLException: bad indentation of a mapping entry (61:17)
+
+ 58 |         description: 容器情况
+ 59 |         widget:
+ 60 |         icon: portainer.png
+ 61 |             type: portainer
+----------------------^
+ 62 |             url: http://192.168.124.14:9000
+ 63 |             env: 3
+[2023-12-21T06:07:24.398Z] error: bad indentation of a mapping entry (61:17)
+
+ 58 |         description: 容器情况
+ 59 |         widget:
+ 60 |         icon: portainer.png
+ 61 |             type: portainer
+----------------------^
+ 62 |             url: http://192.168.124.14:9000
+ 63 |             env: 3
+[2023-12-21T06:07:24.611Z] error: Failed to load services.yaml, please check for errors
+[2023-12-21T06:07:24.612Z] error: YAMLException: bad indentation of a mapping entry (61:17)
+
+ 58 |         description: 容器情况
+ 59 |         widget:
+ 60 |         icon: portainer.png
+ 61 |             type: portainer
+----------------------^
+ 62 |             url: http://192.168.124.14:9000
+ 63 |             env: 3
+[2023-12-21T06:08:47.835Z] error: Failed to load services.yaml, please check for errors
+[2023-12-21T06:08:47.836Z] error: YAMLException: bad indentation of a mapping entry (61:17)
+
+ 58 |         description: 容器情况
+ 59 |         widget:
+ 60 |         icon: portainer.png
+ 61 |             type: portainer
+----------------------^
+ 62 |             url: http://192.168.124.14:9000
+ 63 |             env: 3
+[2023-12-21T06:09:16.575Z] error: <credentialedProxyHandler> HTTP Error 404 calling http://192.168.124.14:9000/api/endpoints/3/docker/containers/json?all=1
