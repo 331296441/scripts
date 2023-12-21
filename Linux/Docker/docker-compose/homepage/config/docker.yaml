@@ -6,5 +6,10 @@ OneCloud:
     host: 192.168.124.14
     port: 2375
 
-StoreOS:
+localhost:
     socket: /var/run/docker.sock
+
+iStoreOS:
+    host: 192.168.124.101
+    port: 2375
+
