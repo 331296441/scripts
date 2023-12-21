@@ -1,0 +1,41 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+
+- OneCloud:
+    - aria2ng:
+        href: http://192.168.124.14:16880/
+        description: 下载工具
+    - casaOS:
+        href: http://192.168.124.14
+        description: 管理工具
+    - Portainer:
+        icon: portainer.png
+        href: "http://192.168.124.14:9000/"
+        description: 容器管理服务器
+        widget:
+            type: portainer
+            url: http://192.168.124.14:9000
+            env: 2
+            key: ptr_/WFI4DVzzDX1h8/WUX/qcKqFX5orH7GmimVmutK0QdY=
+
+- J3060:
+    - 管理页面:
+        href: http://192.168.124.101/
+        description: iStoreOS管理页面
+    - VSCode Server:
+        server: StoreOS
+        container: codeserver
+        href: http://192.168.124.101:8085/
+        description: 代码编写
+    - OneCloud:
+        server: StoreOS
+        container: OneCloud
+    - HomePage:
+        server: StoreOS
+        container: HomePage
+	
+- D410c:
+    - kodbox:
+        href: http://11.11.11.3/
+        description: 文档管理

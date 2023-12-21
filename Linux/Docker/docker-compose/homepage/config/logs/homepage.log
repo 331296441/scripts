@@ -1,0 +1,415 @@
+[2023-12-20T13:19:35.061Z] info: docker.yaml was copied to the config folder
+[2023-12-20T13:19:35.131Z] info: services.yaml was copied to the config folder
+[2023-12-20T13:19:35.138Z] info: bookmarks.yaml was copied to the config folder
+[2023-12-20T13:19:35.147Z] info: widgets.yaml was copied to the config folder
+[2023-12-20T13:19:35.152Z] info: custom.css was copied to the config folder
+[2023-12-20T13:19:35.156Z] info: custom.js was copied to the config folder
+[2023-12-20T13:19:44.949Z] info: kubernetes.yaml was copied to the config folder
+[2023-12-20T13:36:46.107Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:36:46.110Z] error: YAMLException: tab characters must not be used in indentation (10:5)
+
+  7 |         href: http://192.168.124.14 ...
+  8 |         description: 下载工具
+  9 |     - casaOS:
+ 10 |     →href: http://192.168.124.14
+----------^
+ 11 | →description: 管理工具
+ 12 | 
+[2023-12-20T13:36:46.254Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:36:46.256Z] error: YAMLException: tab characters must not be used in indentation (10:5)
+
+  7 |         href: http://192.168.124.14 ...
+  8 |         description: 下载工具
+  9 |     - casaOS:
+ 10 |     →href: http://192.168.124.14
+----------^
+ 11 | →description: 管理工具
+ 12 | 
+[2023-12-20T13:36:47.798Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:36:47.800Z] error: YAMLException: tab characters must not be used in indentation (10:5)
+
+  7 |         href: http://192.168.124.14 ...
+  8 |         description: 下载工具
+  9 |     - casaOS:
+ 10 |     →href: http://192.168.124.14
+----------^
+ 11 | →description: 管理工具
+ 12 | 
+[2023-12-20T13:50:34.506Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:50:34.508Z] error: YAMLException: bad indentation of a mapping entry (12:9)
+
+  9 |     - casaOS:
+ 10 |         href: http://192.168.124.14
+ 11 |         description: 管理工具
+ 12 |         - Portainer:
+--------------^
+ 13 |             icon: portainer.png
+ 14 |             href: "http://192.168.124.1 ...
+[2023-12-20T13:50:34.560Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:50:34.563Z] error: YAMLException: bad indentation of a mapping entry (12:9)
+
+  9 |     - casaOS:
+ 10 |         href: http://192.168.124.14
+ 11 |         description: 管理工具
+ 12 |         - Portainer:
+--------------^
+ 13 |             icon: portainer.png
+ 14 |             href: "http://192.168.124.1 ...
+[2023-12-20T13:50:35.910Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:50:35.911Z] error: YAMLException: bad indentation of a mapping entry (12:9)
+
+  9 |     - casaOS:
+ 10 |         href: http://192.168.124.14
+ 11 |         description: 管理工具
+ 12 |         - Portainer:
+--------------^
+ 13 |             icon: portainer.png
+ 14 |             href: "http://192.168.124.1 ...
+[2023-12-20T13:51:17.976Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T13:52:35.900Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T13:52:35.986Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:52:35.987Z] error: YAMLException: tab characters must not be used in indentation (32:5)
+
+ 29 |         href: http://192.168.124.10 ...
+ 30 |         description: 代码编写
+ 31 |     - Docker
+ 32 |     →server: iStoreOS
+----------^
+ 33 |         widget:
+ 34 |             type: Docker
+[2023-12-20T13:52:36.112Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:52:36.114Z] error: YAMLException: tab characters must not be used in indentation (32:5)
+
+ 29 |         href: http://192.168.124.10 ...
+ 30 |         description: 代码编写
+ 31 |     - Docker
+ 32 |     →server: iStoreOS
+----------^
+ 33 |         widget:
+ 34 |             type: Docker
+[2023-12-20T13:52:36.969Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:52:36.970Z] error: YAMLException: tab characters must not be used in indentation (32:5)
+
+ 29 |         href: http://192.168.124.10 ...
+ 30 |         description: 代码编写
+ 31 |     - Docker
+ 32 |     →server: iStoreOS
+----------^
+ 33 |         widget:
+ 34 |             type: Docker
+[2023-12-20T13:53:10.873Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:53:10.877Z] error: YAMLException: bad indentation of a sequence entry (32:15)
+
+ 29 |         href: http://192.168.124.101:8085/
+ 30 |         description: 代码编写
+ 31 |     - Docker
+ 32 |         server: iStoreOS
+--------------------^
+ 33 |         widget:
+ 34 |             type: Docker
+[2023-12-20T13:53:11.810Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:53:11.812Z] error: YAMLException: bad indentation of a sequence entry (32:15)
+
+ 29 |         href: http://192.168.124.101:8085/
+ 30 |         description: 代码编写
+ 31 |     - Docker
+ 32 |         server: iStoreOS
+--------------------^
+ 33 |         widget:
+ 34 |             type: Docker
+[2023-12-20T13:53:32.243Z] error: <httpProxy> Error calling http://192.168.0.124:9000/api/endpoints/2/docker/containers/json...
+[2023-12-20T13:53:32.258Z] error: <httpProxy> [
+  500,
+  Error: connect ETIMEDOUT 192.168.0.124:9000
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -110,
+    code: 'ETIMEDOUT',
+    syscall: 'connect',
+    address: '192.168.0.124',
+    port: 9000
+  }
+]
+[2023-12-20T13:53:32.264Z] error: <credentialedProxyHandler> HTTP Error 500 calling http://192.168.0.124:9000/api/endpoints/2/docker/containers/json?all=1
+[2023-12-20T13:55:40.586Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:55:40.590Z] error: YAMLException: bad indentation of a sequence entry (32:15)
+
+ 29 |         href: http://192.168.124.101:8085/
+ 30 |         description: 代码编写
+ 31 |     - Docker
+ 32 |         server: iStoreOS
+--------------------^
+ 33 |         container: OneCloud
+ 34 | →
+[2023-12-20T13:55:41.383Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:55:41.384Z] error: YAMLException: bad indentation of a sequence entry (32:15)
+
+ 29 |         href: http://192.168.124.101:8085/
+ 30 |         description: 代码编写
+ 31 |     - Docker
+ 32 |         server: iStoreOS
+--------------------^
+ 33 |         container: OneCloud
+ 34 | →
+[2023-12-20T13:56:09.432Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:56:09.433Z] error: YAMLException: bad indentation of a sequence entry (32:15)
+
+ 29 |         href: http://192.168.124.101:8085/
+ 30 |         description: 代码编写
+ 31 |     - Docker
+ 32 |         server: iStoreOS
+--------------------^
+ 33 |         container: OneCloud
+ 34 | →
+[2023-12-20T13:57:54.349Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:57:54.350Z] error: YAMLException: bad indentation of a sequence entry (32:15)
+
+ 29 |         href: http://192.168.124.101:8085/
+ 30 |         description: 代码编写
+ 31 |     - Docker
+ 32 |         server: iStoreOS
+--------------------^
+ 33 |         container: OneCloud
+ 34 | →
+[2023-12-20T13:57:55.107Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:57:55.109Z] error: YAMLException: bad indentation of a sequence entry (32:15)
+
+ 29 |         href: http://192.168.124.101:8085/
+ 30 |         description: 代码编写
+ 31 |     - Docker
+ 32 |         server: iStoreOS
+--------------------^
+ 33 |         container: OneCloud
+ 34 | →
+[2023-12-20T13:58:29.575Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:58:29.576Z] error: YAMLException: bad indentation of a sequence entry (32:15)
+
+ 29 |         href: http://192.168.124.101:8085/
+ 30 |         description: 代码编写
+ 31 |     - Docker
+ 32 |         server: StoreOS
+--------------------^
+ 33 |         container: OneCloud
+ 34 | →
+[2023-12-20T13:58:30.360Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:58:30.362Z] error: YAMLException: bad indentation of a sequence entry (32:15)
+
+ 29 |         href: http://192.168.124.101:8085/
+ 30 |         description: 代码编写
+ 31 |     - Docker
+ 32 |         server: StoreOS
+--------------------^
+ 33 |         container: OneCloud
+ 34 | →
+[2023-12-20T13:59:15.384Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T13:59:15.385Z] error: YAMLException: bad indentation of a sequence entry (32:15)
+
+ 29 |         href: http://192.168.124.101:8085/
+ 30 |         description: 代码编写
+ 31 |     - Docker
+ 32 |         server: StoreOS
+--------------------^
+ 33 |         container: OneCloud
+ 34 | →
+[2023-12-20T13:59:54.221Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T13:59:57.352Z] error: <dockerStatsService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T13:59:57.357Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:00:11.936Z] error: <dockerStatsService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:00:11.952Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:00:19.690Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:00:19.894Z] error: <dockerStatsService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:00:29.002Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:00:29.198Z] error: <dockerStatsService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:01:27.526Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:01:27.746Z] error: <dockerStatsService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:01:49.650Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:01:49.889Z] error: <dockerStatsService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:02:17.818Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:02:17.997Z] error: <dockerStatsService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:04:50.227Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:04:50.239Z] error: <dockerStatsService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:04:50.273Z] error: <httpProxy> Error calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json...
+[2023-12-20T14:04:50.276Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:9000
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 9000
+  }
+]
+[2023-12-20T14:04:50.279Z] error: <credentialedProxyHandler> HTTP Error 500 calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json?all=1
+[2023-12-20T14:04:57.096Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:04:57.115Z] error: <httpProxy> Error calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json...
+[2023-12-20T14:04:57.117Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:9000
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 9000
+  }
+]
+[2023-12-20T14:04:57.118Z] error: <credentialedProxyHandler> HTTP Error 500 calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json?all=1
+[2023-12-20T14:04:57.742Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:04:57.771Z] error: <httpProxy> Error calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json...
+[2023-12-20T14:04:57.774Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:9000
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 9000
+  }
+]
+[2023-12-20T14:04:57.777Z] error: <credentialedProxyHandler> HTTP Error 500 calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json?all=1
+[2023-12-20T14:06:07.871Z] error: <httpProxy> Error calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json...
+[2023-12-20T14:06:07.875Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:9000
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 9000
+  }
+]
+[2023-12-20T14:06:07.877Z] error: <credentialedProxyHandler> HTTP Error 500 calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json?all=1
+[2023-12-20T14:06:10.810Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:07:14.362Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:07:14.411Z] error: <httpProxy> Error calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json...
+[2023-12-20T14:07:14.413Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:9000
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 9000
+  }
+]
+[2023-12-20T14:07:14.416Z] error: <credentialedProxyHandler> HTTP Error 500 calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json?all=1
+[2023-12-20T14:07:16.978Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T14:07:17.013Z] error: <httpProxy> Error calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json...
+[2023-12-20T14:07:17.015Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:9000
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 9000
+  }
+]
+[2023-12-20T14:07:17.024Z] error: <credentialedProxyHandler> HTTP Error 500 calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json?all=1
+[2023-12-20T15:07:54.809Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:07:54.956Z] error: <httpProxy> Error calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json...
+[2023-12-20T15:07:54.958Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:9000
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 9000
+  }
+]
+[2023-12-20T15:07:54.959Z] error: <credentialedProxyHandler> HTTP Error 500 calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json?all=1
+[2023-12-20T15:40:15.669Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:40:21.607Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:40:21.610Z] error: <dockerStatsService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:40:56.641Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:40:56.646Z] error: <dockerStatsService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:44:03.870Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:44:05.027Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:45:06.402Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:45:07.102Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:45:10.482Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:46:43.928Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:49:32.529Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:49:32.576Z] error: tab characters must not be used in indentation (34:1)
+
+ 31 |     - Docker:
+ 32 |         server: StoreOS
+ 33 |         container: OneCloud
+ 34 | →container: HomePage
+------^
+ 35 | →
+ 36 | - D410c:
+[2023-12-20T15:49:32.661Z] error: Failed to load services.yaml, please check for errors
+[2023-12-20T15:49:32.662Z] error: YAMLException: tab characters must not be used in indentation (34:1)
+
+ 31 |     - Docker:
+ 32 |         server: StoreOS
+ 33 |         container: OneCloud
+ 34 | →container: HomePage
+------^
+ 35 | →
+ 36 | - D410c:
+[2023-12-20T15:50:16.135Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:50:16.867Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:58:47.777Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:58:48.145Z] error: <credentialedProxyHandler> HTTP Error 404 calling http://192.168.124.14:9000/api/endpoints/1/docker/containers/json?all=1
+[2023-12-20T15:58:48.669Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:58:48.902Z] error: <credentialedProxyHandler> HTTP Error 404 calling http://192.168.124.14:9000/api/endpoints/1/docker/containers/json?all=1
+[2023-12-20T15:59:18.058Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T15:59:18.245Z] error: <credentialedProxyHandler> HTTP Error 404 calling http://192.168.124.14:9000/api/endpoints/1/docker/containers/json?all=1
+[2023-12-20T16:00:36.519Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T16:00:37.567Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T16:01:51.817Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-20T16:01:55.802Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
