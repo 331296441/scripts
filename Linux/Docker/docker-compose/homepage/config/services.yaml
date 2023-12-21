@@ -58,7 +58,7 @@
         href: http://192.168.124.14:8080
         server: OneCloud
         icon: dashy.png
-        container: OpenWRT
+        container: my-dashy-dashboard
 
 - J3060:
     - iStoreOS:
