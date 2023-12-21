@@ -522,3 +522,60 @@
  62 |             url: http://192.168.124.14:9000
  63 |             env: 3
 [2023-12-21T06:09:16.575Z] error: <credentialedProxyHandler> HTTP Error 404 calling http://192.168.124.14:9000/api/endpoints/3/docker/containers/json?all=1
+[2023-12-21T07:12:07.982Z] error: tab characters must not be used in indentation (40:1)
+
+ 37 |         container: navidrome
+ 38 |         widget:
+ 39 |             type: navidrome
+ 40 | →    url: http://192.168.124.14 ...
+------^
+ 41 | →    user: wood
+ 42 | →    token: b1e4999163950f96fa7 ...
+[2023-12-21T07:12:07.988Z] error: tab characters must not be used in indentation (40:1)
+
+ 37 |         container: navidrome
+ 38 |         widget:
+ 39 |             type: navidrome
+ 40 | →    url: http://192.168.124.14 ...
+------^
+ 41 | →    user: wood
+ 42 | →    token: b1e4999163950f96fa7 ...
+[2023-12-21T07:12:08.088Z] error: tab characters must not be used in indentation (40:1)
+
+ 37 |         container: navidrome
+ 38 |         widget:
+ 39 |             type: navidrome
+ 40 | →    url: http://192.168.124.14 ...
+------^
+ 41 | →    user: wood
+ 42 | →    token: b1e4999163950f96fa7 ...
+[2023-12-21T07:12:08.250Z] error: Failed to load services.yaml, please check for errors
+[2023-12-21T07:12:08.251Z] error: YAMLException: tab characters must not be used in indentation (40:1)
+
+ 37 |         container: navidrome
+ 38 |         widget:
+ 39 |             type: navidrome
+ 40 | →    url: http://192.168.124.14 ...
+------^
+ 41 | →    user: wood
+ 42 | →    token: b1e4999163950f96fa7 ...
+[2023-12-21T07:12:08.349Z] error: Failed to load services.yaml, please check for errors
+[2023-12-21T07:12:08.351Z] error: YAMLException: tab characters must not be used in indentation (40:1)
+
+ 37 |         container: navidrome
+ 38 |         widget:
+ 39 |             type: navidrome
+ 40 | →    url: http://192.168.124.14 ...
+------^
+ 41 | →    user: wood
+ 42 | →    token: b1e4999163950f96fa7 ...
+[2023-12-21T07:12:10.142Z] error: Failed to load services.yaml, please check for errors
+[2023-12-21T07:12:10.144Z] error: YAMLException: tab characters must not be used in indentation (40:1)
+
+ 37 |         container: navidrome
+ 38 |         widget:
+ 39 |             type: navidrome
+ 40 | →    url: http://192.168.124.14 ...
+------^
+ 41 | →    user: wood
+ 42 | →    token: b1e4999163950f96fa7 ...

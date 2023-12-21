@@ -10,6 +10,7 @@
         server: OneCloud
         container: aria2-aria2-1
     - casaOS:
+        ping: 192.168.124.14
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.bcccf52e-76a4-41da-a7a2-fb1881350703&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
         href: http://192.168.124.14
         description: 管理工具
@@ -34,6 +35,12 @@
         href: http://192.168.124.14:4533
         server: OneCloud
         container: navidrome
+        widget:
+            type: navidrome
+            url: http://192.168.124.14:4533
+            user: wood
+            token: b1e4999163950f96fa7ef59b1f0f570b
+            salt: salt
 
 - J3060:
     - 管理页面:
@@ -64,6 +71,7 @@
             key: ptr_/WFI4DVzzDX1h8/WUX/qcKqFX5orH7GmimVmutK0QdY=
 - D410c:
     - kodbox:
+        # ping: 11.11.11.3
         href: http://11.11.11.3/
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.4ea4e788-5329-4b17-b95c-d2a0f46452ee&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2
         description: 文档管理
