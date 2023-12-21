@@ -657,3 +657,9 @@
     at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
 [2023-12-21T08:35:16.042Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.101:2375
     at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-21T08:38:59.368Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.101:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-21T08:38:59.371Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.101:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-21T08:38:59.444Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.101:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
