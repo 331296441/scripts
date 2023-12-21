@@ -10,7 +10,7 @@ https://dashy.to/docs/quick-start
 ``` shell
 docker run -d \
   -p 8080:80 \
-  -v /mnt/projects:/scripts/Linux/Docker/conf/Dashy/example9-conf.yml:/app/public/conf.yml \
+  -v /mnt/projects/scripts/Linux/Docker/conf/Dashy/example9-conf.yml:/app/public/conf.yml \
   --name my-dashy-dashboard \
   --restart=always \
   lissy93/dashy:latest
