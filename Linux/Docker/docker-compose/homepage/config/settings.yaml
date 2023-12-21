@@ -4,7 +4,7 @@
 
 providers:
   openweathermap: openweathermapapikey
-  weatherapi: weatherapiapikey
+  weatherapi: 389f9f027cfc41298c9112212232112
 
 
 language: zh-CN
