@@ -48,6 +48,11 @@
         server: OneCloud
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.A2450BEC-5595-40BA-9F13-D9EC6AB74B9F&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
         container: homepage
+    - HomePOpenWRTage:
+        description: 软路由
+        server: OneCloud
+        icon: openwrt.png
+        container: OpenWRT
 
 - J3060:
     - iStoreOS:
