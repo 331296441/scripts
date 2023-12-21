@@ -20,6 +20,7 @@
             env: 2
             key: ptr_/WFI4DVzzDX1h8/WUX/qcKqFX5orH7GmimVmutK0QdY=
     - navidrome:
+        description: 音乐播放
         icon: https://ts3.cn.mm.bing.net/th?id=ODLS.5326a48a-7ae4-4c15-8a4a-3fde0d298155&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
         href: http://192.168.124.14:4533
         server: OneCloud
@@ -37,11 +38,13 @@
         server: OneCloud
         container: aria2-aria2-1
     - kodbox:
+        description: 文档管理
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.4ea4e788-5329-4b17-b95c-d2a0f46452ee&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2
         href: http://192.168.124.14:8098
         server: OneCloud
         container: kodbox-kodbox-1
     - HomePage:
+        description: 页面导航
         server: OneCloud
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.A2450BEC-5595-40BA-9F13-D9EC6AB74B9F&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
         container: homepage
@@ -71,10 +74,12 @@
         href: http://192.168.124.101:8085/
         description: 代码编写
     - OneCloud:
+        description: 网心云
         icon: https://ts2.cn.mm.bing.net/th?id=ODLS.cf634298-1a0f-44eb-b32b-0b416fb83914&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2
         server: iStoreOS
         container: OneCloud
     - HomePage:
+        description: 页面导航
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.A2450BEC-5595-40BA-9F13-D9EC6AB74B9F&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
         server: iStoreOS
         container: HomePage
