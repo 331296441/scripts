@@ -56,7 +56,7 @@
 
 - J3060:
     - iStoreOS:
-        icon: https://ts4.cn.mm.bing.net/th?id=ODLS.abb46ae2-fdd4-4abc-a665-5e4ae0b8e98f&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2
+        icon: openwrt.png
         href: http://192.168.124.101/
         description: iStoreOS管理页面
         ping: 192.168.124.101
@@ -73,7 +73,7 @@
         description: 下载工具
         icon: https://pic2.zhimg.com/v2-9c7e25d52582980ce8a03a69c2e17db5_1440w.jpg?source=172ae18b
     - VSCode-Server:
-        icon: https://ts4.cn.mm.bing.net/th?id=ODLS.2d8f99b9-7bcb-4f0f-be03-922d3eb10c83&w=32&h=32&qlt=95&pcl=fffffa&o=6&pid=1.2
+        icon: vscode.png
         server: iStoreOS
         container: codeserver
         href: http://192.168.124.101:8085/
