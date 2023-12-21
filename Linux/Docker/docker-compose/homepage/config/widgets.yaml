@@ -6,6 +6,11 @@
     cpu: true
     memory: true
     disk: /
+- datetime:
+    text_size: xl
+    format:
+      timeStyle: long
+      hour12: false
 
     
 - weatherapi:
