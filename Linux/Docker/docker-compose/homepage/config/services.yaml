@@ -54,17 +54,17 @@
         ping: 192.168.124.101
     - VSCode Server:
         icon: https://ts4.cn.mm.bing.net/th?id=ODLS.2d8f99b9-7bcb-4f0f-be03-922d3eb10c83&w=32&h=32&qlt=95&pcl=fffffa&o=6&pid=1.2
-        server: StoreOS
+        server: iStoreOS
         container: codeserver
         href: http://192.168.124.101:8085/
         description: 代码编写
     - OneCloud:
         icon: https://ts2.cn.mm.bing.net/th?id=ODLS.cf634298-1a0f-44eb-b32b-0b416fb83914&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2
-        server: StoreOS
+        server: iStoreOS
         container: OneCloud
     - HomePage:
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.A2450BEC-5595-40BA-9F13-D9EC6AB74B9F&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
-        server: StoreOS
+        server: iStoreOS
         container: HomePage
     - Portainer:
         description: 容器情况
