@@ -21,7 +21,7 @@
             key: ptr_/WFI4DVzzDX1h8/WUX/qcKqFX5orH7GmimVmutK0QdY=
     - navidrome:
         description: 音乐播放
-        icon: https://ts3.cn.mm.bing.net/th?id=ODLS.5326a48a-7ae4-4c15-8a4a-3fde0d298155&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
+        icon: navidrome.png
         href: http://192.168.124.14:4533
         server: OneCloud
         container: navidrome
