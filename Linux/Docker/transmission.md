@@ -1,3 +1,8 @@
+# transmission
+是一个BT客户端，被大多数PT网站兼容
+来源：https://cloud.tencent.com/developer/article/2072005
+
+安装
 ```shell
 docker run -d --name="transmission" \
   -e USERNAME=wood \
