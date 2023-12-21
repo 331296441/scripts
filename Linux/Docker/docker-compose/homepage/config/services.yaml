@@ -48,7 +48,7 @@
         server: OneCloud
         icon: homepage.png
         container: homepage
-    - OpenWRTage:
+    - OpenWRT:
         description: 软路由
         server: OneCloud
         icon: openwrt.png
@@ -78,14 +78,14 @@
         container: codeserver
         href: http://192.168.124.101:8085/
         description: 代码编写
-    - OneCloud:
+    - OneThing:
         description: 网心云
         icon: https://ts2.cn.mm.bing.net/th?id=ODLS.cf634298-1a0f-44eb-b32b-0b416fb83914&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2
         server: iStoreOS
         container: OneCloud
     - HomePage:
         description: 页面导航
-        icon: https://ts1.cn.mm.bing.net/th?id=ODLS.A2450BEC-5595-40BA-9F13-D9EC6AB74B9F&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
+        icon: homepage.png
         server: iStoreOS
         container: HomePage
 - D410c:
