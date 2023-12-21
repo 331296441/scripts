@@ -53,6 +53,12 @@
         server: OneCloud
         icon: openwrt.png
         container: OpenWRT
+    - Dashy:
+        description: 系统监控
+        href: http://192.168.124.14:8080
+        server: OneCloud
+        icon: dashy.png
+        container: OpenWRT
 
 - J3060:
     - iStoreOS:
