@@ -3,7 +3,7 @@
 # https://gethomepage.dev/latest/configs/settings
 
 providers:
-  openweathermap: openweathermapapikey
+  openweathermap: d71c4ffc8025469608181f5d2c2b94dd
   weatherapi: 389f9f027cfc41298c9112212232112
 
 
@@ -12,7 +12,7 @@ background:
   image: https://images.unsplash.com/photo-1502790671504-542ad42d5189?auto=format&fit=crop&w=2560&q=80
   blur: sm #模糊程度，范围 sm, "", md, xl... 参考 https://tailwindcss.com/docs/backdrop-blur
   saturate: 50 #饱和度，范围 0, 50, 100... 参考 https://tailwindcss.com/docs/backdrop-saturate
-  brightness: 50 #亮度，范围 0, 50, 75... 参考 https://tailwindcss.com/docs/backdrop-brightness
+  brightness: 75 #亮度，范围 0, 50, 75... 参考 https://tailwindcss.com/docs/backdrop-brightness
   opacity: 50 #不透明度，范围 0-100
 title: 木头的导航页
 hideVersion: true
