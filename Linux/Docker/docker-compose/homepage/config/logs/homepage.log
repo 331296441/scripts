@@ -413,3 +413,44 @@
     at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
 [2023-12-20T16:01:55.802Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
     at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-21T02:56:37.396Z] error: tab characters must not be used in indentation (27:1)
+
+ 24 |             key: ptr_/WFI4DVzzD ...
+ 25 |     - kodbox:
+ 26 |         server: OneCloud
+ 27 | →container: kodbox-kodbox-1
+------^
+ 28 | 
+ 29 | - J3060:
+[2023-12-21T02:56:37.656Z] error: Failed to load services.yaml, please check for errors
+[2023-12-21T02:56:37.663Z] error: YAMLException: tab characters must not be used in indentation (27:1)
+
+ 24 |             key: ptr_/WFI4DVzzD ...
+ 25 |     - kodbox:
+ 26 |         server: OneCloud
+ 27 | →container: kodbox-kodbox-1
+------^
+ 28 | 
+ 29 | - J3060:
+[2023-12-21T02:56:39.939Z] error: Failed to load services.yaml, please check for errors
+[2023-12-21T02:56:39.945Z] error: YAMLException: tab characters must not be used in indentation (27:1)
+
+ 24 |             key: ptr_/WFI4DVzzD ...
+ 25 |     - kodbox:
+ 26 |         server: OneCloud
+ 27 | →container: kodbox-kodbox-1
+------^
+ 28 | 
+ 29 | - J3060:
+[2023-12-21T02:56:43.086Z] error: Failed to load services.yaml, please check for errors
+[2023-12-21T02:56:43.087Z] error: YAMLException: tab characters must not be used in indentation (27:1)
+
+ 24 |             key: ptr_/WFI4DVzzD ...
+ 25 |     - kodbox:
+ 26 |         server: OneCloud
+ 27 | →container: kodbox-kodbox-1
+------^
+ 28 | 
+ 29 | - J3060:
+[2023-12-21T02:57:17.684Z] error: <credentialedProxyHandler> HTTP Error 401 calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json?all=1
+[2023-12-21T02:57:29.447Z] error: <credentialedProxyHandler> HTTP Error 401 calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json?all=1

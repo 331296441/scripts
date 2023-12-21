@@ -6,10 +6,14 @@
     - aria2ng:
         href: http://192.168.124.14:16880/
         description: 下载工具
+        server: OneCloud
+        container: aria2-aria2-1
     - casaOS:
         href: http://192.168.124.14
         description: 管理工具
     - Portainer:
+        server: OneCloud
+        container: portainer
         icon: portainer.png
         href: "http://192.168.124.14:9000/"
         description: 容器管理服务器
@@ -18,6 +22,9 @@
             url: http://192.168.124.14:9000
             env: 2
             key: ptr_/WFI4DVzzDX1h8/WUX/qcKqFX5orH7GmimVmutK0QdY=
+    - kodbox:
+        server: OneCloud
+        container: kodbox-kodbox-1
 
 - J3060:
     - 管理页面:
