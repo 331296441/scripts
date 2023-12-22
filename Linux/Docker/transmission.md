@@ -11,7 +11,7 @@ docker run -d --name="transmission" \
   -p 51413:51413 \
   -p 51413:51413/udp \
   -v /mnt/PT/downloads:/root/Downloads \
-  -v /mnt/PT/data/transmission:/root/.config/transmission-daemon \
+  -v /mnt/PT/data/transmission:/data \
   --restart=always \
-  helloz/transmission
+  gists/transmission
   ```
