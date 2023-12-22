@@ -3,20 +3,17 @@
 # https://gethomepage.dev/latest/configs/services
 
 - OneCloud:
-<<<<<<< HEAD
-    - aria2:
-        icon: https://pic2.zhimg.com/v2-9c7e25d52582980ce8a03a69c2e17db5_1440w.jpg?source=172ae18b
-        href: http://192.168.124.14:16880/
-        description: 下载工具
-        server: OneCloud
-        container: aria2-aria2-1
-=======
->>>>>>> 41c59ab37239c4d24d7cb487c8b9acefa5c7e7ee
     - casaOS:
         ping: 192.168.124.14
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.bcccf52e-76a4-41da-a7a2-fb1881350703&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
         href: http://192.168.124.14
         description: 管理工具
+    - aria2:
+        icon: ariang.png
+        href: http://192.168.124.14:16880/
+        description: 下载工具
+        server: OneCloud
+        container: aria2-aria2-1
     - Portainer:
         server: OneCloud
         container: portainer
@@ -39,12 +36,10 @@
             url: http://192.168.124.14:4533
             user: wood
             token: b1e4999163950f96fa7ef59b1f0f570b
-            salt: salt
-<<<<<<< HEAD
     - HomePage:
         server: OneCloud
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.A2450BEC-5595-40BA-9F13-D9EC6AB74B9F&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
-	container: homepage
+        container: homepage
 
 - J3060:
     - Aria2:
