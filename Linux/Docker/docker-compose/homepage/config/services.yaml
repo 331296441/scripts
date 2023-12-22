@@ -106,7 +106,6 @@
         href: http://192.168.124.101/
         description: iStoreOS管理页面
         ping: 192.168.124.101
->>>>>>> 41c59ab37239c4d24d7cb487c8b9acefa5c7e7ee
     - Portainer:
         description: 容器情况
         icon: portainer.png
@@ -115,19 +114,6 @@
             url: http://192.168.124.14:9000
             env: 4
             key: ptr_/WFI4DVzzDX1h8/WUX/qcKqFX5orH7GmimVmutK0QdY=
-<<<<<<< HEAD
-- D410c:
-    - kodbox:
-        ping: 11.11.11.3
-        href: http://11.11.11.3/
-        icon: https://ts1.cn.mm.bing.net/th?id=ODLS.4ea4e788-5329-4b17-b95c-d2a0f46452ee&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2
-        description: 文档管理
-    - aria2:
-        ping: 11.11.11.3
-        icon: https://pic2.zhimg.com/v2-9c7e25d52582980ce8a03a69c2e17db5_1440w.jpg?source=172ae18b
-        href: http://11.11.11.3/aria2
-        description: 下载服务
-=======
     - Aria2:
         href: http://192.168.124.101/ariang
         description: 下载工具
