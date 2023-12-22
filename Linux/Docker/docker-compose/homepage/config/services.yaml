@@ -8,12 +8,6 @@
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.bcccf52e-76a4-41da-a7a2-fb1881350703&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
         href: http://192.168.124.14
         description: 管理工具
-    - aria2:
-        icon: ariang.png
-        href: http://192.168.124.14:16880/
-        description: 下载工具
-        server: OneCloud
-        container: aria2-aria2-1
     - Portainer:
         server: OneCloud
         container: portainer
@@ -40,8 +34,6 @@
         server: OneCloud
         icon: homepage.png
         container: homepage
-
-- J3060:
     - aria2:
         icon: ariang.png
         href: http://192.168.124.14:16880/
@@ -105,11 +97,6 @@
         icon: https://ts2.cn.mm.bing.net/th?id=ODLS.cf634298-1a0f-44eb-b32b-0b416fb83914&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2
         server: iStoreOS
         container: OneCloud
-    - HomePage:
-        description: 页面导航
-        icon: homepage.png
-        server: iStoreOS
-        container: HomePage
 # - D410c:
 #     - kodbox:
 #         ping: 11.11.11.3
