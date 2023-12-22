@@ -3,12 +3,15 @@
 # https://gethomepage.dev/latest/configs/services
 
 - OneCloud:
+<<<<<<< HEAD
     - aria2:
         icon: https://pic2.zhimg.com/v2-9c7e25d52582980ce8a03a69c2e17db5_1440w.jpg?source=172ae18b
         href: http://192.168.124.14:16880/
         description: 下载工具
         server: OneCloud
         container: aria2-aria2-1
+=======
+>>>>>>> 41c59ab37239c4d24d7cb487c8b9acefa5c7e7ee
     - casaOS:
         ping: 192.168.124.14
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.bcccf52e-76a4-41da-a7a2-fb1881350703&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
@@ -25,13 +28,9 @@
             url: http://192.168.124.14:9000
             env: 2
             key: ptr_/WFI4DVzzDX1h8/WUX/qcKqFX5orH7GmimVmutK0QdY=
-    - kodbox:
-        icon: https://ts1.cn.mm.bing.net/th?id=ODLS.4ea4e788-5329-4b17-b95c-d2a0f46452ee&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2
-        href: http://192.168.124.14:8098
-        server: OneCloud
-        container: kodbox-kodbox-1
     - navidrome:
-        icon: https://ts3.cn.mm.bing.net/th?id=ODLS.5326a48a-7ae4-4c15-8a4a-3fde0d298155&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
+        description: 音乐播放
+        icon: navidrome.png
         href: http://192.168.124.14:4533
         server: OneCloud
         container: navidrome
@@ -41,6 +40,7 @@
             user: wood
             token: b1e4999163950f96fa7ef59b1f0f570b
             salt: salt
+<<<<<<< HEAD
     - HomePage:
         server: OneCloud
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.A2450BEC-5595-40BA-9F13-D9EC6AB74B9F&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
@@ -70,6 +70,48 @@
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.A2450BEC-5595-40BA-9F13-D9EC6AB74B9F&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
         server: iStoreOS
         container: HomePage
+=======
+    - aria2:
+        icon: ariang.png
+        href: http://192.168.124.14:16880/
+        description: 下载工具
+        server: OneCloud
+        container: aria2-aria2-1
+    - transmission:
+        icon: transmission.png
+        description: pt下载
+        href: http://192.168.124.14:9091
+        ping: http://192.168.124.14:9091
+        widget:
+            type: transmission
+            url: http://192.168.124.14:9091
+            username: 1
+            password: 1
+            rpcUrl: /transmission/
+    - kodbox:
+        description: 文档管理
+        icon: https://ts1.cn.mm.bing.net/th?id=ODLS.4ea4e788-5329-4b17-b95c-d2a0f46452ee&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2
+        href: http://192.168.124.14:8098
+        server: OneCloud
+        container: kodbox-kodbox-1
+    - HomePage:
+        description: 页面导航
+        server: OneCloud
+        icon: homepage.png
+        container: homepage
+    - OpenWRT:
+        description: 软路由
+        server: OneCloud
+        icon: openwrt.png
+        container: OpenWRT
+
+- J3060:
+    - iStoreOS:
+        icon: openwrt.png
+        href: http://192.168.124.101/
+        description: iStoreOS管理页面
+        ping: 192.168.124.101
+>>>>>>> 41c59ab37239c4d24d7cb487c8b9acefa5c7e7ee
     - Portainer:
         description: 容器情况
         icon: portainer.png
@@ -78,6 +120,7 @@
             url: http://192.168.124.14:9000
             env: 4
             key: ptr_/WFI4DVzzDX1h8/WUX/qcKqFX5orH7GmimVmutK0QdY=
+<<<<<<< HEAD
 - D410c:
     - kodbox:
         ping: 11.11.11.3
@@ -89,3 +132,36 @@
         icon: https://pic2.zhimg.com/v2-9c7e25d52582980ce8a03a69c2e17db5_1440w.jpg?source=172ae18b
         href: http://11.11.11.3/aria2
         description: 下载服务
+=======
+    - Aria2:
+        href: http://192.168.124.101/ariang
+        description: 下载工具
+        icon: ariang.png
+    - VSCode-Server:
+        icon: vscode.png
+        server: iStoreOS
+        container: codeserver
+        href: http://192.168.124.101:8085/
+        description: 代码编写
+    - OneThing:
+        description: 网心云
+        icon: https://ts2.cn.mm.bing.net/th?id=ODLS.cf634298-1a0f-44eb-b32b-0b416fb83914&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2
+        server: iStoreOS
+        container: OneCloud
+    - HomePage:
+        description: 页面导航
+        icon: homepage.png
+        server: iStoreOS
+        container: HomePage
+# - D410c:
+#     - kodbox:
+#         ping: 11.11.11.3
+#         href: http://11.11.11.3/
+#         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.4ea4e788-5329-4b17-b95c-d2a0f46452ee&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2
+#         description: 文档管理
+#     - aria2:
+#         ping: 11.11.11.3
+#         icon: ariang.png
+#         href: http://11.11.11.3/aria2
+#         description: 下载工具
+>>>>>>> 41c59ab37239c4d24d7cb487c8b9acefa5c7e7ee

@@ -6,4 +6,19 @@
     - Github:
         - abbr: GH
           href: https://github.com/
+    - Gitee:
+        - abbr: GT
+          href: https://gitee.com/
 
+- Download:
+    - HDTime:
+        - abbr: HT
+          href: https://hdtime.org/
+
+- D410c:
+    - kodbox:
+        - abbr: KD
+          href: http://11.11.11.3
+    - aria2:
+        - abbr: ar
+          href: http://11.11.11.3/aria2
