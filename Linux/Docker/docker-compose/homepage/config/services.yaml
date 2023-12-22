@@ -30,10 +30,6 @@
             url: http://192.168.124.14:4533
             user: wood
             token: b1e4999163950f96fa7ef59b1f0f570b
-    - HomePage:
-        server: OneCloud
-        icon: homepage.png
-        container: homepage
     - aria2:
         icon: ariang.png
         href: http://192.168.124.14:16880/
@@ -113,4 +109,3 @@
 #         icon: ariang.png
 #         href: http://11.11.11.3/aria2
 #         description: 下载工具
->>>>>>> 41c59ab37239c4d24d7cb487c8b9acefa5c7e7ee
