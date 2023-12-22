@@ -97,6 +97,11 @@
         icon: https://ts2.cn.mm.bing.net/th?id=ODLS.cf634298-1a0f-44eb-b32b-0b416fb83914&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2
         server: iStoreOS
         container: OneCloud
+    - HomePage:
+        description: 页面导航
+        icon: homepage.png
+        server: iStoreOS
+        container: HomePage
 # - D410c:
 #     - kodbox:
 #         ping: 11.11.11.3
