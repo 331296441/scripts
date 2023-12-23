@@ -19,28 +19,19 @@
             url: http://192.168.124.14:9000
             env: 2
             key: ptr_/WFI4DVzzDX1h8/WUX/qcKqFX5orH7GmimVmutK0QdY=
-    - navidrome:
-        description: 音乐播放
-        icon: navidrome.png
-        href: http://192.168.124.14:4533
-        server: OneCloud
-        container: navidrome
-        widget:
-            type: navidrome
-            url: http://192.168.124.14:4533
-            user: wood
-            token: b1e4999163950f96fa7ef59b1f0f570b
-    - aria2:
-        icon: ariang.png
-        href: http://192.168.124.14:16880/
-        description: 下载工具
-        server: OneCloud
-        container: aria2-aria2-1
     - qBitorrent:
-        icon
+        icon: qbitorrent.png
+        description: pt下载
+        href: http://192.168.124.14:9091
+        ping: http://192.168.124.14:8080
+        widget:
+            type: transmission
+            url: http://192.168.124.14:9091
+            username: 1
+            password: 1
     - transmission:
         icon: transmission.png
-        description: pt下载
+        description: pt上茶UN
         href: http://192.168.124.14:9091
         ping: http://192.168.124.14:9091
         widget:
@@ -65,7 +56,23 @@
         server: OneCloud
         icon: openwrt.png
         container: OpenWRT
-
+    - navidrome:
+        description: 音乐播放
+        icon: navidrome.png
+        href: http://192.168.124.14:4533
+        server: OneCloud
+        container: navidrome
+        widget:
+            type: navidrome
+            url: http://192.168.124.14:4533
+            user: wood
+            token: b1e4999163950f96fa7ef59b1f0f570b
+    - aria2:
+        icon: ariang.png
+        href: http://192.168.124.14:16880/
+        description: 下载工具
+        server: OneCloud
+        container: aria2-aria2-1
 - J3060:
     - iStoreOS:
         icon: openwrt.png
