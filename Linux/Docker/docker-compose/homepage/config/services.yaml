@@ -87,6 +87,14 @@
             url: http://192.168.124.14:9000
             env: 4
             key: ptr_/WFI4DVzzDX1h8/WUX/qcKqFX5orH7GmimVmutK0QdY=
+    - qBittorrent:
+        icon: qbittorrent.png
+        description: pt下载
+        href: http://192.168.124.101:8080
+        ping: http://192.168.124.101:8080
+        widget:
+            type: qbittorrent
+            url: http://192.168.124.101:8080
     - Aria2:
         href: http://192.168.124.101/ariang
         description: 下载工具
