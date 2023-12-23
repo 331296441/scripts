@@ -16,5 +16,5 @@ docker run -d \
     -e UMASK=000   `# 掩码权限，默认000，可以考虑设置为022`  \
     -e NASTOOL_AUTO_UPDATE=false `# 如需在启动容器时自动升级程程序请设置为true` \
     --restart unless-stopped \
-    jxxghp/nas-tools:3.2.3
+    nastool/nas-tools
 ```
