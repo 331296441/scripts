@@ -42,5 +42,5 @@ docker run --restart always --name openwrt -d --network macnet --privileged --ip
 
 每日编译的
 ```
-docker run --restart always --name openwrt -d --network macnet --privileged --ip 192.168.124.101 openwrt:latest /sbin/init
+docker run --restart always --name openwrt -d --network macnet --privileged --ip 192.168.124.101 openwrt:23.11.19 /sbin/init
 ```
