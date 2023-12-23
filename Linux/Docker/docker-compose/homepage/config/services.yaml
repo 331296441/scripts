@@ -25,10 +25,10 @@
         href: http://192.168.124.14:9091
         ping: http://192.168.124.14:8080
         widget:
-            type: transmission
-            url: http://192.168.124.14:9091
-            username: 1
-            password: 1
+            type: qbittorrent
+            url: http://192.168.124.14:8080
+            username: admin
+            password: 1QAZ2wsx.
     - transmission:
         icon: transmission.png
         description: pt上茶UN
