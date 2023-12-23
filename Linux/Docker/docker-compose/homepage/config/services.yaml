@@ -36,6 +36,8 @@
         description: 下载工具
         server: OneCloud
         container: aria2-aria2-1
+    - qBitorrent:
+        icon
     - transmission:
         icon: transmission.png
         description: pt下载
