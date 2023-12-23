@@ -1,13 +1,14 @@
 # nastool
 是一个一键管理nas下载的工具
 
+不支持arm32
 
 ``` shell
 docker run -d \
     --name nas-tools \
     --hostname nas-tools \
     -p 3001:3000   `# 默认的webui控制端口`  \
-    -v /mnt/PT/nastools/sys/nastool:/config/  `# 冒号左边请修改为你想在主机上保存配置文件的路径` \
+    -v /mnt/sata4-1/nastools/sys/nastool:/config/  `# 冒号左边请修改为你想在主机上保存配置文件的路径` \
     -v /mnt/PT/nastools/downloads/:/media/  `# 媒体目录，多个目录需要分别映射进来`  \
     -e PUID=0     `# 想切换为哪个用户来运行程序，该用户的uid，详见下方说明`  \
     -e PGID=0     `# 想切换为哪个用户来运行程序，该用户的gid，详见下方说明`  \
