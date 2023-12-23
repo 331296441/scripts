@@ -40,17 +40,17 @@
             username: 1
             password: 1
             rpcUrl: /transmission/
+    - HomePage:
+        description: 页面导航
+        server: OneCloud
+        icon: homepage.png
+        container: homepage
     - kodbox:
         description: 文档管理
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.4ea4e788-5329-4b17-b95c-d2a0f46452ee&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2
         href: http://192.168.124.14:8098
         server: OneCloud
         container: kodbox-kodbox-1
-    - HomePage:
-        description: 页面导航
-        server: OneCloud
-        icon: homepage.png
-        container: homepage
     - OpenWRT:
         description: 软路由
         server: OneCloud
