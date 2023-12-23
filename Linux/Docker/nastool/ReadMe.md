@@ -1,7 +1,8 @@
 # nastool
 是一个一键管理nas下载的工具
 
-不支持arm32
+
+直接使用入戏命令会报错，待确定
 
 ``` shell
 docker run -d \
