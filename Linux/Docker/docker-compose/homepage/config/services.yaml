@@ -9,16 +9,16 @@
         href: http://192.168.124.14
         description: 管理工具
     - Portainer:
-        server: OneCloud
+        server: iStoreOS
         container: portainer
         icon: portainer.png
-        href: "http://192.168.124.14:9000/"
+        href: "http://192.168.124.101:9000/"
         description: 容器管理服务器
         widget:
             type: portainer
-            url: http://192.168.124.14:9000
+            url: http://192.168.124.101:9000
             env: 2
-            key: ptr_/WFI4DVzzDX1h8/WUX/qcKqFX5orH7GmimVmutK0QdY=
+            key: ptr_9LkWwhvGlhKqEn4pewQSbHAiOpNV9Pqm9J0cA45RsFs=
     - qBittorrent:
         icon: qbittorrent.png
         description: pt下载
