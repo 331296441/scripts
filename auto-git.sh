@@ -37,8 +37,6 @@ echo "当前时间为:$current_time"
 echo "先修改文件,再检查提交,确保修改后实时提交"
 chmod -R 777 ./
 
-# rsync -av 11.11.11.4:/overlay/Configs/HomePage/ /mnt/projects/scripts/Linux/Docker/docker-compose/homepage/config/ || true
-
 cd "$SCRIPT_DIR"
 echo "检查本地是否有更新"
 if [ -n "$(git status -s)" ]; then
