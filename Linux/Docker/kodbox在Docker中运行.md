@@ -11,5 +11,5 @@ docker run -d --name kodbox -p 8098:80 --restart unless-stopped -v /mnt/projects
 
 
 ``` shell
-docker run -d --name kodbox -p 8098:80 --restart unless-stopped -v /mnt/sata1-1/projects:/projects -v /mnt/sata1-1/kodbox:/var/www/html kodcloud/kodbox
+docker run -d --name kodbox -p 8098:80 --restart unless-stopped -v /mnt/sda1/projects:/projects kodcloud/kodbox
 ```
