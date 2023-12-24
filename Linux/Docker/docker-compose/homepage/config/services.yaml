@@ -20,7 +20,7 @@
             password: 1QAZ2wsx.
     - transmission:
         icon: transmission.png
-        description: pt上传
+        description: pt做种
         href: http://192.168.124.14:9091
         ping: http://192.168.124.14:9091
         widget:
