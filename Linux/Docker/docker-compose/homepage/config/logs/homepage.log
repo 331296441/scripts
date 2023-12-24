@@ -745,3 +745,170 @@
     at async NextNodeServer.run (/app/node_modules/.pnpm/next@12.3.4_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/server/base-server.js:365:29)
     at async NextNodeServer.handleRequest (/app/node_modules/.pnpm/next@12.3.4_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/server/base-server.js:303:20)
     at async Server.<anonymous> (/app/server.js:19:5)
+[2023-12-24T14:24:42.364Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:24:42.434Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:24:42.438Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:24:42.468Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:24:42.522Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:24:42.526Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:24:47.816Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:24:48.095Z] error: <httpProxy> Error calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json...
+[2023-12-24T14:24:48.099Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:9000
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 9000
+  }
+]
+[2023-12-24T14:24:48.102Z] error: <credentialedProxyHandler> HTTP Error 500 calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json?all=1
+[2023-12-24T14:24:48.144Z] error: <httpProxy> Error calling http://192.168.124.14:8080/api/v2/torrents/info...
+[2023-12-24T14:24:48.150Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:8080
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 8080
+  }
+]
+[2023-12-24T14:24:48.153Z] error: <qbittorrentProxyHandler> HTTP 500 getting data from qBittorrent.  Data: { error: [Object] }
+[2023-12-24T14:24:48.215Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:24:48.257Z] error: <httpProxy> Error calling http://192.168.124.14:9091/transmission/rpc...
+[2023-12-24T14:24:48.259Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:9091
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 9091
+  }
+]
+[2023-12-24T14:24:48.260Z] error: <transmissionProxyHandler> Error getting data from Transmission: 500.  Data: { error: [Object] }
+[2023-12-24T14:24:48.264Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:24:48.295Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:24:48.298Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:24:48.336Z] error: <httpProxy> Error calling http://192.168.124.14:4533/rest/getNowPlaying...
+[2023-12-24T14:24:48.338Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:4533
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 4533
+  }
+]
+[2023-12-24T14:24:48.343Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:24:48.389Z] error: <httpProxy> Error calling http://192.168.124.14:9000/api/endpoints/4/docker/containers/json...
+[2023-12-24T14:24:48.391Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:9000
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 9000
+  }
+]
+[2023-12-24T14:24:48.393Z] error: <credentialedProxyHandler> HTTP Error 500 calling http://192.168.124.14:9000/api/endpoints/4/docker/containers/json?all=1
+[2023-12-24T14:24:48.913Z] error: <qbittorrentProxyHandler> Error logging in to qBittorrent: Data: Fails.
+[2023-12-24T14:24:54.462Z] error: <qbittorrentProxyHandler> Error logging in to qBittorrent: Data: Fails.
+[2023-12-24T14:27:22.074Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:27:22.201Z] error: <httpProxy> Error calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json...
+[2023-12-24T14:27:22.203Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:9000
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 9000
+  }
+]
+[2023-12-24T14:27:22.203Z] error: <credentialedProxyHandler> HTTP Error 500 calling http://192.168.124.14:9000/api/endpoints/2/docker/containers/json?all=1
+[2023-12-24T14:27:22.275Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:27:22.279Z] error: <httpProxy> Error calling http://192.168.124.14:8080/api/v2/torrents/info...
+[2023-12-24T14:27:22.280Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:8080
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 8080
+  }
+]
+[2023-12-24T14:27:22.282Z] error: <qbittorrentProxyHandler> HTTP 500 getting data from qBittorrent.  Data: { error: [Object] }
+[2023-12-24T14:27:22.323Z] error: <httpProxy> Error calling http://192.168.124.14:9091/transmission/rpc...
+[2023-12-24T14:27:22.324Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:9091
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 9091
+  }
+]
+[2023-12-24T14:27:22.325Z] error: <transmissionProxyHandler> Error getting data from Transmission: 500.  Data: { error: [Object] }
+[2023-12-24T14:27:22.327Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:27:22.329Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:27:22.359Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:27:22.361Z] error: <dockerStatusService> Error: connect ECONNREFUSED 192.168.124.14:2375
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)
+[2023-12-24T14:27:22.376Z] error: <httpProxy> Error calling http://192.168.124.14:4533/rest/getNowPlaying...
+[2023-12-24T14:27:22.376Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:4533
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 4533
+  }
+]
+[2023-12-24T14:27:22.421Z] error: <httpProxy> Error calling http://192.168.124.14:9000/api/endpoints/4/docker/containers/json...
+[2023-12-24T14:27:22.422Z] error: <httpProxy> [
+  500,
+  Error: connect ECONNREFUSED 192.168.124.14:9000
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '192.168.124.14',
+    port: 9000
+  }
+]
+[2023-12-24T14:27:22.423Z] error: <credentialedProxyHandler> HTTP Error 500 calling http://192.168.124.14:9000/api/endpoints/4/docker/containers/json?all=1
+[2023-12-24T14:27:22.850Z] error: <qbittorrentProxyHandler> Error logging in to qBittorrent: Data: Fails.
