@@ -30,7 +30,7 @@ elif [ -n "$(git status -uno | grep 'Your branch is behind')" ]; then
 else
   echo "远程无更新,跳过"
 fi
-HOST_NAME=$(hostname)
+HOST_NAME=$(hostname) || HST_NAME=iStoreOS
 current_time=$(date "+%Y-%m-%d %H:%M:%S")
 echo "当前时间为:$current_time"
 
