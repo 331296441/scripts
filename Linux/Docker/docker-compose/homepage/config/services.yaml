@@ -8,17 +8,6 @@
         icon: https://ts1.cn.mm.bing.net/th?id=ODLS.bcccf52e-76a4-41da-a7a2-fb1881350703&w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2
         href: http://192.168.124.14
         description: 管理工具
-    - Portainer:
-        server: iStoreOS
-        container: portainer
-        icon: portainer.png
-        href: "http://192.168.124.101:9000/"
-        description: 容器管理服务器
-        widget:
-            type: portainer
-            url: http://192.168.124.101:9000
-            env: 2
-            key: ptr_9LkWwhvGlhKqEn4pewQSbHAiOpNV9Pqm9J0cA45RsFs=
     - qBittorrent:
         icon: qbittorrent.png
         description: pt下载
@@ -80,13 +69,16 @@
         description: iStoreOS管理页面
         ping: 192.168.124.101
     - Portainer:
-        description: 容器情况
+        server: iStoreOS
+        container: portainer
         icon: portainer.png
+        href: "http://192.168.124.101:9000/"
+        description: 容器管理服务器
         widget:
             type: portainer
-            url: http://192.168.124.14:9000
-            env: 4
-            key: ptr_/WFI4DVzzDX1h8/WUX/qcKqFX5orH7GmimVmutK0QdY=
+            url: http://192.168.124.101:9000
+            env: 2
+            key: ptr_9LkWwhvGlhKqEn4pewQSbHAiOpNV9Pqm9J0cA45RsFs=
     - qBittorrent:
         icon: qbittorrent.png
         description: pt下载
