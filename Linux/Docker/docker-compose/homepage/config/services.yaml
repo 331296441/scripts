@@ -70,7 +70,7 @@
         ping: 192.168.124.101
     - Portainer:
         server: iStoreOS
-        container: portainer
+        container: Portainer
         icon: portainer.png
         href: "http://192.168.124.101:9000/"
         description: 容器管理服务器
