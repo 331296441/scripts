@@ -2,7 +2,7 @@
 
 # server
 ```
-docker run -d --name=Portainer --restart=unless-stopped -p 9000:9000/tcp -v /volume2/docker/portainer/data:/data -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer-ce
+docker run -d --name=Portainer --restart=unless-stopped -p 9000:9000/tcp -v /overlay/Configs/portainer/data:/data -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer-ce
 ```
 
 # agent
