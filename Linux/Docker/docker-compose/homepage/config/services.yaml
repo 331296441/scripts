@@ -87,9 +87,6 @@
         widget:
             type: qbittorrent
             url: http://192.168.124.101:8080
-            username: admin
-            password: 1QAZ2wsx.
-            
     - Aria2:
         href: http://192.168.124.101/ariang
         description: 下载工具
