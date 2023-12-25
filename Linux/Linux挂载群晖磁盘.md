@@ -1,5 +1,10 @@
 # 如何挂载群晖磁盘
+## 问题
 
+sudo mount /dev/md127 /media
+mount: /media: unknown filesystem type 'LVM2_member'. 怎么挂载（不损失数据）
+
+## 答案
 根据你提供的信息，`/dev/md127` 是一个 LVM2 成员设备，而不是一个普通的文件系统。要正确地挂载这个设备，你需要执行以下步骤：
 
 1. 确保已经安装了 LVM2 工具。如果没有安装，可以使用以下命令来安装：
