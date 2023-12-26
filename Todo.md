@@ -14,6 +14,7 @@ open wrt似乎无法启动
 
 PhotoPrism
 https://zhuanlan.zhihu.com/p/364726618
+https://zhuanlan.zhihu.com/p/671494790
 
 ## 笔记管理
 zadam/trilium
