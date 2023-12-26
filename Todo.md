@@ -11,6 +11,8 @@ https://immich.app/docs/install/docker-compose
 open wrt似乎无法启动
 
 
+
+PhotoPrism
 https://zhuanlan.zhihu.com/p/364726618
 
 ## 笔记管理
