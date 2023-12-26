@@ -10,6 +10,9 @@ immich
 https://immich.app/docs/install/docker-compose
 open wrt似乎无法启动
 
+
+https://zhuanlan.zhihu.com/p/364726618
+
 ## 笔记管理
 zadam/trilium
 
