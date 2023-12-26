@@ -6,7 +6,8 @@
 
 ## 相册管理 
 immich
-
+一系列APP
+https://immich.app/docs/install/docker-compose
 
 ## 笔记管理
 zadam/trilium
