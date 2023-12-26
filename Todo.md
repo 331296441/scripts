@@ -14,7 +14,7 @@ open wrt似乎无法启动
 zadam/trilium
 
 ``` shell
-docker run -itd -p 127.0.0.1:8083:8080 -v /mnt/projects/scripts/notebook:/root/trilium-data zadam/trilium
+docker run -itd -name trilium -p 8083:8080 -v /mnt/projects/scripts/notebook:/root/trilium-data zadam/trilium
 ```
 
 ## 下载服务化
