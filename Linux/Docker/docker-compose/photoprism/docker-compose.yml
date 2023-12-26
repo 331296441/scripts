@@ -126,8 +126,8 @@ services:
       MARIADB_INITDB_SKIP_TZINFO: "1"
       MARIADB_DATABASE: "photoprism"
       MARIADB_USER: "photoprism"
-      MARIADB_PASSWORD: "insecure"
-      MARIADB_ROOT_PASSWORD: "insecure"
+      MARIADB_PASSWORD: "1QAZ2wsx."
+      MARIADB_ROOT_PASSWORD: "1QAZ2wsx."
 
   ## Watchtower upgrades services automatically (optional)
   ## see https://docs.photoprism.app/getting-started/updates/#watchtower
