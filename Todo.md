@@ -8,6 +8,7 @@
 immich
 一系列APP
 https://immich.app/docs/install/docker-compose
+open wrt似乎无法启动
 
 ## 笔记管理
 zadam/trilium
