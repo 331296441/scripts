@@ -13,5 +13,9 @@ open wrt似乎无法启动
 ## 笔记管理
 zadam/trilium
 
+``` shell
+docker run -itd -p 127.0.0.1:8083:8080 -v /mnt/projects/scripts/notebook:/root/trilium-data zadam/trilium
+```
+
 ## 下载服务化
 https://aimerneige.com/zh/post/linux/install-qbittorrent-nox-on-ubuntu-server/
