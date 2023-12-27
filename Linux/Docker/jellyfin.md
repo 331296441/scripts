@@ -4,7 +4,6 @@
 
 ```shell
 docker run -d --privileged \
---restart=Never \
 --name=jellyfin \
 --device /dev/dri/renderD128:/dev/dri/renderD128 \
 --device /dev/dri/card0:/dev/dri/card0 \
