@@ -12,7 +12,7 @@ docker run -d --privileged \
 --add-host=www.themoviedb.org:54.192.22.105 \
 --volume /overlay/Configs/Jellyfin:/config \
 --volume /mnt/sda1/Caches/Jellyfin:/cache \
---volume /mnt/:/media \
+--volume /mnt/:/media:ro \
 -p 8096:8096 \
 nyanmisaka/jellyfin
 ```
