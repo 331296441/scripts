@@ -10,7 +10,7 @@ docker pull p3terx/aria2-pro
 AriaNg是Aria2的UI操作界面，提供web端的在线操作
 
 docker pull p3terx/ariang
- 3.创建并启动ari2-pro容器
+3.创建并启动ari2-pro容器
 
 命令如下：
 ```
