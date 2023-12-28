@@ -6,7 +6,7 @@ https://www.iyuu.cn/archives/427/
 ``` shell
 docker run -d \
 --name IYUUPlus \
--v /media/temp/plus:/IYUU/db \
+-v /media/PT/temp/plus:/IYUU/db \
 -p 8787:8787 \
 --restart=always \
 iyuucn/iyuuplus:latest
