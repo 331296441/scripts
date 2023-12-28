@@ -14,3 +14,8 @@ docker run -d --name kodbox -p 8098:80 --restart unless-stopped -v /mnt/projects
 docker run -d --name kodexplorer -p 8081:80 --restart unless-stopped -v /mnt/sda1/projects:/projects -v /overlay/Configs/kodbox:/var/www/html kodcloud/kodbox:1.49
 ```
 
+
+iStoreOS启动命令
+```shell
+docker run --restart=unless-stopped -d     -v "/overlay/Configs/KodExplorer:/var/www/html"     --dns=172.17.0.1     -p 8081:80  -v /mnt:/mnt:rslave -e TZ=Asia/Shanghai --name kodexplorer "kodcloud/kodbox:latest"
+```
