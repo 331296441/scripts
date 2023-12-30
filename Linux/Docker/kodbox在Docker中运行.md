@@ -2,7 +2,7 @@
 
 
 ## 玩客云
-如果latest不支持armv7的话，目前已知
+如果latest不支持armv7的话，目前已知最新版本是1.4505
 
 ``` shell
 docker run -d --name kodbox -p 8098:80 --restart unless-stopped -v /mnt/temp/projects:/projects kodcloud/kodbox:1.4505
