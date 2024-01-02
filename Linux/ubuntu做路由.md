@@ -54,7 +54,7 @@ iface enx000ec6c605b3 inet static
 options {
   directory "/var/cache/bind";
   forwarders {
-    8.8.8.8;
+    114.114.114.114;
     8.8.4.4;
   };
   dnssec-validation auto;
