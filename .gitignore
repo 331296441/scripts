@@ -2,3 +2,4 @@ Update.md
 logs
 log
 *.log
+*/cache/*
