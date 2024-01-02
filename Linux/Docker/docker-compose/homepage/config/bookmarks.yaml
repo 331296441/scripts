@@ -29,4 +29,8 @@
 - Tools:
     - XTerminal:
         - abbr: xt
-          href: 
+          href: https://xterminal.cn/
+    
+    - Warp:
+        - abbr: wa
+          href: https://www.warp.dev/
