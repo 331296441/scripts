@@ -27,4 +27,6 @@
         - abbr: ar
           href: http://11.11.11.3/aria2
 - Tools:
-    -
+    - XTerminal:
+        - abbr: xt
+          href: 
