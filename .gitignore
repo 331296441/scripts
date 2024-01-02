@@ -4,3 +4,4 @@ log
 *.log
 **/cache/*
 navidrome.db
+**navidrome.db*
