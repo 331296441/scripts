@@ -75,3 +75,10 @@ sudo systemctl start bind9
 ```
 
 现在，您的Debian系统应该已经配置好了。连接到enx000ec6c605b3网口的设备将通过wlan0接口连接到外网，并通过DHCP和DNS服务获得IP地址和域名解析。
+
+
+# PS.
+需要指定dhcp的接口
+``` shell
+vim /etc/default/isc-dhcp-server
+```
