@@ -36,7 +36,7 @@ docker run -d --privileged \
 --add-host=api.themoviedb.org:13.225.174.30 \
 --add-host=image.tmdb.org:13.227.73.57 \
 --add-host=www.themoviedb.org:54.192.22.105 \
---volume /mnt/media/config:/config \
+--volume /mnt/conf/jellyfin/config:/config \
 --volume /mnt/media/cache:/cache \
 --volume /mnt/media:/media \
 --volume /mnt/media:/media \
