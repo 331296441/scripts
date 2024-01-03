@@ -37,9 +37,9 @@ docker run -d --privileged \
 --add-host=image.tmdb.org:13.227.73.57 \
 --add-host=www.themoviedb.org:54.192.22.105 \
 --volume /mnt/conf/jellyfin/config:/config \
---volume /mnt/media/cache:/cache \
---volume /mnt/media:/media \
---volume /mnt/media:/media \
+--volume /mnt/conf/jellyfin/cache:/cache \
+--volume /mnt/PT/downloads:/PT1 \
+--volume /mnt/temp/PT/Downloads:/PT2 \
 -p 8096:8096 \
 jellyfin/jellyfin
 ```
