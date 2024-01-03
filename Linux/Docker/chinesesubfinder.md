@@ -11,7 +11,7 @@ docker create \
   -p 19035:19035\
   -v /media/chinesesubfinder/config:/config \
   -v /media/chinesesubfinder/SubFixCache:/app/SubFixCache \
-  -v /media/waitforwatchvideo:/media \
+  -v /media/waitforwatch:/media \
   allanpk716/chinesesubfinder:latest
   
 
