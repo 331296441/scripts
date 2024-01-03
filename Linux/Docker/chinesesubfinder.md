@@ -8,10 +8,10 @@ docker create \
   -e PUID=0 \
   -e PGID=0 \
   -e TZ=Asia/Shanghai \
-  -p 16035:16035\
-  -v $PWD/chinesesubfinder:/config \
-  -v $PWD/chinesesubfinder/SubFixCache:/app/SubFixCache \
-  -v $PWD/chinesesubfinder/video:/media \
+  -p 19035:19035\
+  -v /media/chinesesubfinder/config:/config \
+  -v /media/chinesesubfinder/SubFixCache:/app/SubFixCache \
+  -v /media/waitforwatchvideo:/media \
   allanpk716/chinesesubfinder:latest
   
 
