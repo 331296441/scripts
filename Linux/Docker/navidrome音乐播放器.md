@@ -40,8 +40,8 @@ docker run -d \
    --name navidrome \
    --restart=unless-stopped \
    --user 0:0 \
-   -v /mnt/Audio/file:/music \
-   -v /mnt/Audio/conf:/data \
+   -v /media/Audio/file:/music \
+   -v /media/Audio/conf:/data \
    -p 4533:4533 \
    -e ND_LOGLEVEL=info \
    deluan/navidrome:latest
