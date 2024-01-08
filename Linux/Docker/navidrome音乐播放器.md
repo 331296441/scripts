@@ -32,4 +32,19 @@ services:
       # - HTTP_PROXY=http://proxy:port
       # - HTTPS_PROXY=http://proxy:port
     restart: unless-stopped
-    ```
+```
+
+
+``` shell
+docker run -d \
+   --name navidrome \
+   --restart=unless-stopped \
+   --user 0:0 \
+   -v /mnt/Audio/file:/music \
+   -v /mnt/Audio/conf:/data \
+   -p 4533:4533 \
+   -e ND_LOGLEVEL=info \
+   deluan/navidrome:latest
+```
+    
+    
