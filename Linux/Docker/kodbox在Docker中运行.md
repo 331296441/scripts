@@ -10,6 +10,7 @@ docker run -d \
 -p 80:80 \
 --restart unless-stopped \
 -v /mnt:/mnt \
+-v /media:/media \
 -v /mnt/kodbox:/var/www/html \
 kodcloud/kodbox
 ```
