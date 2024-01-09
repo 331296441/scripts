@@ -14,6 +14,18 @@ docker run -d \
 -v /mnt/kodbox:/var/www/html \
 kodcloud/kodbox
 ```
+
+
+``` shell
+docker run -d \
+--name kodexplorer \
+-p 808:80 \
+--restart unless-stopped \
+-v /mnt:/mnt \
+-v /media:/media \
+-v /mnt/kodexplorer:/var/www/html \
+kodcloud/kodexplorer
+```
 解释：
 - projects是用于存放文件，从外部引入是为了可以使用宿主机的定时任务
 - /opt/www/html/kodbox文件夹需要为空，否则不会生成kodbox的文件
