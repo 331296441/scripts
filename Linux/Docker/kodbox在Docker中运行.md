@@ -5,11 +5,11 @@
 如果latest不支持armv7的话，目前已知最新版本是1.4505
 
 ``` shell
-docker run -d --name kodbox \
--p 8098:80 \
+docker run -d --name kodbox-test \
+-p 80:80 \
 --restart unless-stopped \
 -v /mnt:/mnt \
--v /mnt/html:/var/www/html \
+-v /mnt/kodbox:/var/www/html \
 kodcloud/kodbox
 ```
 解释：
