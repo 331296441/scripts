@@ -5,7 +5,8 @@
 如果latest不支持armv7的话，目前已知最新版本是1.4505
 
 ``` shell
-docker run -d --name kodbox-test \
+docker run -d \ 
+--name kodbox-test \
 -p 80:80 \
 --restart unless-stopped \
 -v /mnt:/mnt \
