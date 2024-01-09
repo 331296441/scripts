@@ -5,7 +5,10 @@
 如果latest不支持armv7的话，目前已知最新版本是1.4505
 
 ``` shell
-docker run -d --name kodbox -p 8098:80 --restart unless-stopped -v /mnt/temp/projects:/projects kodcloud/kodbox:1.4505
+docker run -d --name kodbox \
+-p 8098:80 \
+--restart unless-stopped \
+-v /mnt/temp/projects:/projects kodcloud/kodbox:1.4505
 ```
 解释：
 - projects是用于存放文件，从外部引入是为了可以使用宿主机的定时任务
